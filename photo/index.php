@@ -56,7 +56,22 @@
 </head>
 
 <body>
-    <?php include("../blog-HEADE.php");?>
+<div id="topNav">
+    <div style='max-width: 100%; margin: 0 auto;'>
+        <div class="topic center w90">
+            <h2>逝者如斯夫｜不舍昼夜</h2>
+            <div class="p"><a href="javascript:void(0)" onclick="getkoto()" id="hitokoto">比梦想更重要的东西永远都存在着...</a></div>
+        </div>
+    </div>
+    <nav class="nav-collapse" style="clear: both">
+        <ul>
+            <li><a href="..index"  data-hover="Home">Home</a></li>
+            <li><a href="http://mixmix.sinaapp.com/wordpress/"  data-hover="日志">日志</a></li>
+            <li><a href="../message/message.php"  data-hover="留言">留言</a></li>
+            <li><a href="../photo"  data-hover="相册">相册</a></li>
+        </ul>
+    </nav>
+</div>
 <div style="height:60px"></div>
 <div class="wrap ani_in">
   <div class="tagsMod">   

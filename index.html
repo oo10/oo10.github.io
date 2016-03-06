@@ -3,10 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!-- Build -->
     <title>index</title>
-    <script src="./__/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./__/path.css">
+    <link rel="stylesheet" type="text/css" href="path.css">
 <link rel="stylesheet" href="style.css" />
 <script type='text/javascript' src='jquery.min.js'></script>
 <script type='text/javascript' src='jquery.particleground.min.js'></script>
@@ -44,74 +42,5 @@
         window.onload=function(){changeDivHeight();}  
         window.onresize=function(){changeDivHeight();}  
         </script>
-        <script>
-        /**
-         * Helper function, that allows to attach multiple events to selected objects
-         * @param {[object]}   el       [selected element or elements]
-         * @param {[type]}   events   [DOM object events like click or touch]
-         * @param {Function} callback [Callback method]
-         */
-        var addMulitListener = function(el, events, callback) {
-          // Split all events to array
-          var e = events.split(' ');
-          
-            // Loop trough all elements
-            Array.prototype.forEach.call(el, function(element, i) {
-              // Loop trought all events and add event listeners to each
-              Array.prototype.forEach.call(e, function(event, i) {
-                element.addEventListener(event, callback, false);
-              });  
-            });
-        }  ;
-
-        /**
-         * This function is adding ripple effect to elements
-         * @param  {[object]} e [DOM objects, that should apply ripple effect]
-         * @return {[null]}   [description]
-         */
-        addMulitListener(document.querySelectorAll('[material]'), 'click touchstart', function(e) { 
-            var ripple = this.querySelector('.ripple');
-            var eventType = e.type;
-            /**
-             * Ripple
-             */
-            if(ripple == null) {
-              // Create ripple
-              ripple = document.createElement('span'); 
-              ripple.classList.add('ripple');
-              
-              // Prepend ripple to element
-              this.insertBefore(ripple, this.firstChild);
-
-              // Set ripple size
-              if(!ripple.offsetHeight && !ripple.offsetWidth) {
-                var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
-                ripple.style.width = size + 'px';
-                ripple.style.height = size + 'px';
-              }
-
-            }
-
-            // Remove animation effect
-            ripple.classList.remove('animate');
-
-            // get click coordinates by event type
-            if(eventType == 'click') {
-              var x = e.pageX;
-              var y = e.pageY;
-            } else if(eventType == 'touchstart') {
-              var x = e.changedTouches[0].pageX;
-              var y = e.changedTouches[0].pageY;
-            }
-            x = x - this.offsetLeft - ripple.offsetWidth / 2;
-            y = y - this.offsetTop - ripple.offsetHeight / 2;
-
-            // set new ripple position by click or touch position
-            ripple.style.top = y + 'px';
-            ripple.style.left = x + 'px';
-            ripple.classList.add('animate');
-        });   
-        </script>
-        <script type="text/javascript" src="./__/stats" charset="UTF-8"></script>
 </body>
 </html>

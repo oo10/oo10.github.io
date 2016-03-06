@@ -53,10 +53,7 @@ a,a:hover,a:link,a:visited {
 	border: 5px solid #9cdcd0;
 	transition: all .3s;
 }
-.intro .avatar:hover {
-	zoom: 1.2;
-	opacity: .5;
-}
+
 .intro h1 {
 	padding: 45px;
 	font-size: 60px;

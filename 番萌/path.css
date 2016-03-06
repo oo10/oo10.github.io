@@ -1,0 +1,371 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #56ceb0;
+	color: #eafbf8;
+	font-size: 13px;
+	font-family: "Microsoft JhengHei","微软正黑","Microsoft YaHei","微软雅黑","Hiragino Sans GB","黑体",sans-serif;
+}
+a,a:hover,a:link,a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+/* Index*/
+	.shade {
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+}
+.introbox {
+	position: fixed;
+	min-height: 400px;
+	height: 100%;
+	width: 100%;
+	display:table;
+	z-index: -10;
+	top: 0;
+	left: 0;
+}
+.vcenterwrap {
+	display:table-cell;
+	vertical-align:middle;
+}
+.intro {
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	-webkit-animation:ani_in 1.5s ease-in-out;
+	-moz-animation:ani_in 1.5s ease-in-out;
+	-o-animation:ani_in 1.5s ease-in-out;
+	-ms-animation:ani_in 1.5s ease-in-out;
+	animation:ani_in 1.5s ease-in-out;
+}
+.intro .avatar {
+	height: 180px;
+	width: 180px;
+	border-radius: 100%;
+	border: 5px solid #9cdcd0;
+	transition: all .3s;
+}
+.intro .avatar:hover {
+	zoom: 1.2;
+	opacity: .5;
+}
+.intro h1 {
+	padding: 45px;
+	font-size: 60px;
+	font-weight: normal;
+}
+.intro h3 {
+	padding: 10px;
+	font-size: 25px;
+	font-weight: normal;
+}
+.clear {
+	clear: both;
+	float: none;
+}
+.mainbox {
+	/*position: absolute;*/
+	width: 100%;
+	display: none;
+	margin-top: 1000px;
+	position: relative;
+	z-index: 10;
+}
+.main {
+	width: 1000px;
+	margin: 0 auto;
+	padding-bottom: 80px;
+	text-align: center;
+	/*border: 2px solid rgba(255,255,255,.3);*/
+}
+.fmoetitle {
+	float: left;
+	display: inline-block;
+	width: 300px;
+	text-align: center;
+}
+.fmoebox .line {
+	padding: 10px;
+}
+.fmoetitle h2,.fmoetitle h3 {
+	font-weight: normal;
+}
+.fmoetitle h2 {
+	font-size: 45px;
+	padding-top: 10px;
+}
+.fmoetitle h3 {
+	font-size: 20px;
+	padding-top: 15px;
+}
+.fmoebox {
+	display: inline-block;
+	width: 555px;
+	text-align: left;
+}
+.linktitle {
+	display: inline-block;
+	font-size: 16px;
+	padding: 0 8px;
+}
+.btn_fmoe {
+	display: inline-block;
+	border: solid 1px #fff !important;
+	height: 45px;
+	width: 100px;
+	line-height: 45px;
+	text-align: center;
+	border-radius: 100px;
+	margin: 5px 10px;
+	transition: all .3s;
+	font-size: 15px;
+}
+.btn_fmoe:hover {
+	background: #FFF;
+	color: #000;
+}
+a.link_fmoe {
+	padding: 0 8px;
+	display: inline-block;
+	transition: all .3s;
+}
+a.link_fmoe:hover {
+	background: #fff;
+	color: #000;
+}
+.hitokoto {
+	font-size: 13px;
+	margin: 30px 8px 10px 8px;
+	opacity: .75;
+	transition: all .3s;
+}
+.tips {
+	font-size: 12px;
+	opacity: .4;
+	margin: 8px 8px;
+}
+@media (max-width: 767px) {
+	.intro .avatar {
+	height: 100px;
+	width: 100px;
+	border: 5px solid #9cdcd0;
+}
+.intro h1 {
+	padding: 30px;
+	font-size: 32px;
+}
+.intro h3 {
+	padding: 20px;
+	font-size: 15px;
+}
+.main {
+	width: auto;
+	margin: 0 20px;
+	padding-bottom: 30px;
+	text-align: center;
+	/*border: 2px solid rgba(255,255,255,.3);*/
+}
+.fmoebox {
+	width: auto;
+}
+.fmoetitle {
+	display: block;
+	width: 100%;
+}
+.fmoetitle h2 {
+	font-size: 35px;
+	padding-top: 10px;
+}
+.fmoetitle h3 {
+	font-size: 20px;
+	padding-bottom: 30px;
+}
+.btn_fmoe {
+	display: block;
+	height: 35px;
+	width: 70%;
+	line-height: 35px;
+	margin: 10px auto;
+}
+.linktitle {
+	display: block;
+	font-size: 16px;
+	padding: 5px 8px;
+}
+a.link_fmoe {
+	padding: 6px 8px;
+	display: inline-block;
+}
+}
+@-webkit-keyframes ani_in {
+0% {
+	top: -150px;
+	opacity: 0;
+    }
+100% {
+	top: 0px;
+	opacity: 1;
+    }
+}
+@-moz-keyframes ani_in {
+0% {
+	top: -150px;
+	opacity: 0;
+    }
+100% {
+	top: 0px;
+	opacity: 1;
+    }
+}
+@-o-keyframes ani_in {
+0% {
+	top: -150px;
+ 	opacity: 0;
+    }
+100% {
+	top: 0px;
+	opacity: 1;
+    }
+}
+@-ms-keyframes ani_in {
+0% {
+	top: -150px;
+	opacity: 0;
+    }
+100% {
+	top: 0px;
+	opacity: 1;
+    }
+}
+@keyframes ani_in {
+0% {
+	top: -150px;
+	opacity: 0;
+    }
+100% {
+	top: 0px;
+	opacity: 1;
+    }
+}
+[material] {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	border: none;
+	background: none;
+}
+[material][disabled] {
+	background: rgb(234, 234, 234);
+}
+[material][primary] {
+	background: #cecece;
+	width: 56px;
+	height: 56px;
+	-webkit-clip-path: circle(32px at 32px 32px);
+	clip-path: circle(32px at 32px 32px);
+	line-height: 32px;
+	border-radius: 50%;
+	font-size: 24px;
+}
+[material][raised] {
+	border-radius: 3px;
+}
+[material][raised]:not([disabled]) {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+	transition: .3s all ease-in-out;
+	background: #dfdfdf;
+}
+[material][raised]:not([disabled]):hover,
+[material][raised]:not([disabled]):active {
+	box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22);
+}
+[material][raised][colored] {
+	color: #fff;
+	background: #4285f4;
+}
+[material][secondary] {
+	background: #cecece;
+	width: 40px;
+	height: 40px;
+	-webkit-clip-path: circle(40px at 20px 20px);
+	clip-path: circle(40px at 20px 20px);
+	line-height: 16px;
+	border-radius: 50%;
+	font-size: 18px;
+}
+[material]:focus {
+	outline: none;
+}
+.ripple {
+	display: block;
+	position: absolute;
+	background: rgba(0,0,0,.5);
+	border-radius: 100%;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+/*animation effect*/
+	.ripple.animate {
+	-webkit-animation: ripple 0.65s linear;
+	animation: ripple 0.65s linear;
+}
+@-webkit-keyframes ripple {
+100% {
+	opacity: 0;
+	-webkit-transform: scale(2.5);
+	transform: scale(2.5);
+    }
+}
+@keyframes ripple {
+100% {
+	opacity: 0;
+	-webkit-transform: scale(2.5);
+	transform: scale(2.5);
+    }
+}
+/*
+大屏幕
+@media (min-width: 1200px) {
+	...
+}
+平板电脑和小屏电脑之间的分辨率
+@media (min-width: 768px) and (max-width: 979px) {
+	...
+}
+横向放置的手机和竖向放置的平板之间的分辨率
+@media (max-width: 767px) {
+	...
+}
+横向放置的手机及分辨率更小的设备
+@media (max-width: 480px) {
+	...
+}*/
+
+::-webkit-scrollbar {
+	width:8px;
+	height:8px;
+}
+::-webkit-scrollbar-track:vertical {
+	background:#FF0000;
+}
+::-webkit-scrollbar-track-piece {
+	/* 外*/
+	background:#F5F5F5
+}
+::-webkit-scrollbar-thumb:vertical {
+	/* 内*/
+	background:#CCCCCC;
+	border-radius:10px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+	/*鼠内*/
+	background:#666666;
+}

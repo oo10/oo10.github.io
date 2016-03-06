@@ -1,0 +1,137 @@
+﻿@font-face {
+    font-family: "AlphaSmart3000";
+    src: url("font/AlphaSmart3000.eot"); /* IE9 */
+    src: url("font/AlphaSmart3000.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+
+    url("font/AlphaSmart3000.woff") format("woff"), /* chrome、firefox */
+    url("font/AlphaSmart3000.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+
+    url("font/AlphaSmart3000.svg#AlphaSmart3000") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+::selection{
+    background:rgba(0,0,0,.1);
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+#container {
+    width: 100%;
+    height: auto;
+    opacity:0;
+}
+/****************************      滚动  begin           *******************************************/
+
+::-webkit-scrollbar{
+    width:8px; height:8px;
+}
+
+::-webkit-scrollbar-track:vertical{
+    background:#FF0000;
+}
+
+::-webkit-scrollbar-track-piece{  /* 外 */
+    background:#F5F5F5
+}
+
+::-webkit-scrollbar-thumb:vertical{   /* 内 */
+    background:#CCCCCC; border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
+    background:#666666;
+}
+
+/****************************    滚动 end           *******************************************/
+/****************************    加载动画            ******************************************/
+ .spinner {
+     margin: 100px auto;
+     width: 50px;
+     height: 60px;
+     text-align: center;
+     font-size: 10px;
+ }
+
+.spinner > div {
+    background-color: #67CF22;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+    20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+    0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }  20% {
+           transform: scaleY(1.0);
+           -webkit-transform: scaleY(1.0);
+       }
+}
+/****************************    加载动画end            ******************************************/
+
+/****************************    nav效果            ******************************************/
+nav li a {
+    *zoom:1;
+    position:relative;
+    display:inline-block;
+    overflow:hidden;
+    text-decoration:none;
+    word-break: keep-all;
+}
+nav li a:after {
+    clear:both;
+    overflow:hidden;
+}
+nav li a:hover {
+    *color:#fff}
+nav li a::before {
+    color:#fff;
+    position:absolute;
+    overflow:hidden;
+    top:16px;
+    left:0;
+    width:0;
+    text-shadow:2px 2px 8px #f0ead8;
+    display:inline-block;
+    content:attr(data-hover);
+    transition:width 200ms;
+    -moz-transition:width 200ms;
+    -webkit-transition:width 200ms;
+    -o-transition:width 200ms}
+nav li a:hover::before {
+    width:100%;
+}

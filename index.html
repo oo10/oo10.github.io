@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- Build -->
     <title>index</title>
-    <script src="./番萌/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./番萌/path.css">
+    <script src="./__/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./__/path.css">
 <link rel="stylesheet" href="style.css" />
 <script type='text/javascript' src='jquery.min.js'></script>
 <script type='text/javascript' src='jquery.particleground.min.js'></script>
@@ -17,17 +17,6 @@
 </div>
     <div id="fixerr">
         <div title="fMoeErrorReporter" style="margin:0 auto;width:100%;color:blue;text-align:center;font-size:15px;z-index:9999999;font-weight:blod;">
-            <noscript>
-                &lt;div style="padding:5px;background:#ffffa8;"&gt;您的浏览器不支持或者您禁止了Javascript脚本！部分功能将不可用！&lt;/div&gt;
-            </noscript>
-            <!--[if lt IE 9]>
-                <div style="padding:5px;background:#ffff88;">
-                您的浏览器版本过旧，请升级浏览器获得更好的体验，推荐使用 Chrome IE10+ 等最新浏览器！
-                </div>
-            <![endif]-->
-            <!--[if lt IE 8]>
-                <div style="padding:5px;background-color:red;color:#fff;">
-               番萌不支持IE7以下的浏览器，可能会出现严重的布局错位，脚本错误等问题！求您了，升级浏览器吧！
                 </div>
             <![endif]-->
           </div>
@@ -42,40 +31,9 @@
         </div>
     </div>
 
-    <div class="shade" style="opacity: 0;"></div>
-    <div class="mainbox" style="display: block; margin-top: 663px;">
-        <div class="main">
-            <div class="fmoetitle">
-                <h2>「番萌」</h2>
-                <h3>Van!shment Th!s World</h3>
-            </div>
-            <div class="fmoebox">
-                <div class="line" style="padding-bottom:20px;">
-                    <a class="btn_fmoe" material="" href="index/">介绍</a>
-                    <a class="btn_fmoe" material="" href="http://mixmix.sinaapp.com/wordpress">博客</a>
-                    <a class="btn_fmoe" material="" href="photo/">相册</a>
-                </div>
-                <div class="line hitokoto" id="hitokoto">比自己,比梦想更重要的东西永远都存在着...</div>
-                <div class="line">
-                    <p class="tips"> Copyright (c)2015 Rights Reserved.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="hjsbox">
-    </div>
-
     <script>
         //显示内容
         $(".mainbox").css("display","block");
-        //页面滚动
-        $(window).scroll(function() {
-            var scrollh = $(document).height() - $(window).height();
-            var scrollp = $(window).scrollTop();
-            var pre = scrollp / scrollh;
-            //alert('scrollh:'+scrollh+'\n'+'scrollp:'+scrollp+'\n'+'pre:'+pre);
-            $(".shade").css("opacity",pre*0.8);
-        });
         //自适应页面大小
         function changeDivHeight(){
             var clienth = document.documentElement.clientHeight; 
@@ -85,31 +43,6 @@
         //自适应页面大小
         window.onload=function(){changeDivHeight();}  
         window.onresize=function(){changeDivHeight();}  
-        //初始化一言
-        setTimeout("getkoto()",1000);
-        //加载一言
-        var t;
-        function getkoto(){
-            var hjs = document.createElement('script');
-            hjs.setAttribute('id', 'hjs');
-            hjs.setAttribute('src', 'http://api.hitokoto.us/rand?encode=jsc&fun=echokoto');
-            document.getElementById("hjsbox").appendChild(hjs);
-            t=setTimeout("getkoto()",5000);
-        }
-        //输出一言
-        function echokoto(result){
-            var hc = eval(result);
-            //$("#hitokoto").fadeTo(300,0);
-            document.getElementById("hitokoto").innerHTML = hc.hitokoto;
-            //$("#hitokoto").fadeTo(300,0.75);
-        }
-        //弹出提示
-        function a_hm(){
-            alert("\n\n        绘梦 二次元原创绘画\n\n\n        Coming Soon...\n\n");
-        }
-        function a_dm(){
-            alert("\n\n        番萌动画 从未有过如此愉悦的动画管理体验\n\n\n        Coming Soon...\n\n");
-        }
         </script>
         <script>
         /**
@@ -179,6 +112,6 @@
             ripple.classList.add('animate');
         });   
         </script>
-        <script type="text/javascript" src="./番萌/stats" charset="UTF-8"></script>
+        <script type="text/javascript" src="./__/stats" charset="UTF-8"></script>
 </body>
 </html>

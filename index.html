@@ -9,6 +9,15 @@
 <script type='text/javascript' src='jquery.min.js'></script>
 <script type='text/javascript' src='jquery.particleground.min.js'></script>
 <script type='text/javascript' src='canvas.js'></script>
+    <style>
+        @media (max-width: 480px) {
+            iframe{width: 100%;}
+        }
+        @media (min-width: 480px) {
+            iframe{opacity: .6; transition: ease all .5s;}
+            iframe:hover{opacity: .8;}
+        }
+    </style>
 </head>
 <body>
 <div id="particles" class="ani-in-zoom">
@@ -18,7 +27,7 @@
             <div class="intro">
                 <img src="./img/IMG_1610.JPG" alt="阳琪旺" class="avatar">
                 <h1>阳琪旺</h1>
-                <h3>二次元  /  技术宅  /  大三狗  /  世界观测中</h3>
+                <h3>非二次元  /  技术宅  /  大三狗  /  世界观测中</h3>
             </div>
         </div>
     </div>
@@ -36,5 +45,6 @@
         window.onload=function(){changeDivHeight();}  
         window.onresize=function(){changeDivHeight();}  
         </script>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="http://music.163.com/outchain/player?type=2&id=35403523&auto=1&height=32"></iframe>
 </body>
 </html>

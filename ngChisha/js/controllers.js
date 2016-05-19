@@ -2,21 +2,18 @@ var appCtrls = angular.module('appCtrls', []);
 
 appCtrls.controller('HelloCtrl', ['$scope',
     function($scope) {
-        $scope.greeting = {
-            text: 'Hello'
-        };
         $scope.boxs = [{
-            title: '一食堂'
+            title: '去食堂吃饭'
         },{
-            title: '二食堂'
+            title: '吃外卖'
         },{
-            title: '3食堂'
+            title: '去吃黄焖鸡'
         }];
 
         $scope.pageClass="hello";
 
         $scope.alert = function(){
-            $scope.showDialog = "inactive";
+            $scope.showDialog = "translateY(-50%) scale(1)";
         };
 
         $scope.del = function(idx){
@@ -24,8 +21,19 @@ appCtrls.controller('HelloCtrl', ['$scope',
         };
 
         $scope.add = function() {
-            $scope.boxs.push({"title" : $scope.addtitle, "Label": "Item " +     $scope.boxs.length})
+            $scope.boxs.push({"title" : $scope.addtitle});
+            $scope.showDialog = "translateY(-50%) scale(0)";
         };
+
+        $scope.cancel = function(){
+            $scope.showDialog = "translateY(-50%) scale(0)";
+        };
+        var randomNumber = Math.floor((Math.random()*$scope.boxs.length));
+        $scope.boxTitleRodon = $scope.boxs[randomNumber].title;    //result
+        $scope.refresh = function(){
+            $scope.boxTitleRodon = $scope.boxs[0].title;    //result
+        };
+        setInterval(console.log($scope.boxs.length),100)
 
         //$scope.alert = function () {
         //    $modal.open({

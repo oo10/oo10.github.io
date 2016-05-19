@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
         controller: 'HelloCtrl'
     }).when('/list', {
         templateUrl: 'tpls/bookList.html',
-        controller: 'BookListCtrl'
+        controller: 'HelloCtrl'
     }).when('/', {
         templateUrl: 'tpls/index.html',
         controller: 'IndexCtrl'

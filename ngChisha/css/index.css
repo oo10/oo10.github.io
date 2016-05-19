@@ -257,7 +257,43 @@ li{
     display: block;
     box-sizing: border-box;
 }
-@keyframes rotateFall {
+@-webkit-keyframes rotateFall {
+    0% {
+        -webkit-transform: rotateZ(0deg);
+    }
+    20% {
+        -webkit-transform: rotateZ(10deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+    40% {
+        -webkit-transform: rotateZ(17deg);
+    }
+    60% {
+        -webkit-transform: rotateZ(16deg);
+    }
+    100% {
+        -webkit-transform: translateX(-100%) rotateZ(17deg) scale(.6);
+    }
+}
+@-ms-keyframes rotateFall {
+    0% {
+        -ms-transform: rotateZ(0deg);
+    }
+    20% {
+        -ms-transform: rotateZ(10deg);
+        animation-timing-function: ease-out;
+    }
+    40% {
+        -ms-transform: rotateZ(17deg);
+    }
+    60% {
+        -ms-transform: rotateZ(16deg);
+    }
+    100% {
+        -ms-transform: translateX(-100%) rotateZ(17deg) scale(.6);
+    }
+}
+@-o-keyframes rotateFall {
     0% {
         transform: rotateZ(0deg);
     }
@@ -275,25 +311,75 @@ li{
         transform: translateX(-100%) rotateZ(17deg) scale(.6);
     }
 }
-@keyframes slideOutLeft {
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform : translateX(-100%);
+    }
+}
+@-ms-keyframes slideOutLeft {
+    to {
+        -ms-transform: translateX(-100%);
+    }
+}
+@-o-keyframes slideOutLeft {
     to {
         transform: translateX(-100%);
     }
 }
 
-@keyframes scaleUp {
+@-webkit-keyframes scaleUp {
     from {
         opacity: 0.3;
         -webkit-transform: scale(0.8);
     }
 }
-@keyframes scaleDown {
+@-ms-keyframes scaleUp {
+    from {
+        opacity: 0.3;
+        -ms-transform: scale(0.8);
+    }
+}
+@-o-keyframes scaleUp {
+    from {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+@-webkit-keyframes scaleDown {
     to {
         opacity: 0.3;
         -webkit-transform: scale(0.8);
     }
 }
-@keyframes slideInRight {
+@-ms-keyframes scaleDown {
+    to {
+        opacity: 0.3;
+        -ms-transform: scale(0.8);
+    }
+}
+@-o-keyframes scaleDown {
+    to {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform :translateX(100%);
+    }
+    to {
+        -webkit-transform : translateX(0);
+    }
+}
+@-ms-keyframes slideInRight {
+    from {
+        -ms-transform:translateX(100%);
+    }
+    to {
+        -ms-transform: translateX(0);
+    }
+}
+@-o-keyframes slideInRight {
     from {
         transform:translateX(100%);
     }
@@ -301,7 +387,23 @@ li{
         transform: translateX(0);
     }
 }
-@keyframes slideInUp {
+@-webkit-keyframes slideInUp {
+    from {
+        -webkit-transform :translateY(100%);
+    }
+    to {
+        -webkit-transform : translateY(0);
+    }
+}
+@-ms-keyframes slideInUp {
+    from {
+        -ms-transform:translateY(100%);
+    }
+    to {
+        -ms-transform: translateY(0);
+    }
+}
+@-o-keyframes slideInUp {
     from {
         transform:translateY(100%);
     }
@@ -317,20 +419,26 @@ li{
 }
 .hello.ng-enter {
     animation: scaleUp 0.8s both ease-in;
+    -webkit-animation: scaleUp 0.8s both ease-in;
 }
 .hello.ng-leave {
     transform-origin: 0% 0%;
     animation: slideOutLeft .8s both ease-in;
+    -webkit-animation: slideOutLeft .8s both ease-in;
 }
 .list.ng-enter {
     animation:scaleUp 0.8s both ease-in;
+    -webkit-animation:scaleUp 0.8s both ease-in;
 }
 .list.ng-leave {
     animation:slideOutLeft 0.8s both ease-in;
+    -webkit-animation:slideOutLeft 0.8s both ease-in;
 }
 .index.ng-enter {
     animation: scaleUp 0.8s both ease-in;
+    -webkit-animation: scaleUp 0.8s both ease-in;
 }
 .index.ng-leave {
     animation:slideOutLeft 0.8s both ease-in;
+    -webkit-animation:slideOutLeft 0.8s both ease-in;
 }

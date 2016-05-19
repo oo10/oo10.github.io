@@ -1,15 +1,19 @@
-var bookStoreDirectives = angular.module('bookStoreDirectives', []);
+var appDirectives = angular.module('appDirectives', []);
 
-bookStoreDirectives.directive('pageBg', function() {
+appDirectives.directive('pBtn', function() {
         return {
-            //restrict: "E",
-            //template : "<h1>定义指令!</h1>"
+            restrict: "AEC",
+            template : "<p>选择困难症患者福利</p>"
         };
 });
 
-//
-//bookStoreDirectives.directive('bookStoreDirective_1', ['$scope',
-//    function($scope) {
-//
-//    }
-//]);
+
+
+
+//bookStoreDirectives.directive("vgGo", function () {
+//        return {
+//                restrict: "A", link: function () {
+//                                return window.location.href = d.vgGo
+//                }
+//        }
+//});

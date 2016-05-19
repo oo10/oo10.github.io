@@ -1,6 +1,12 @@
 var appCtrls = angular.module('appCtrls', []);
-
-appCtrls.controller('HelloCtrl', ['$scope',
+var boxs = [{
+    title: '去食堂吃饭'
+},{
+    title: '吃外卖'
+},{
+    title: '去吃黄焖鸡'
+}];
+appCtrls.controller('HelloCtrl', ['$scope','$http',
     function($scope) {
         $scope.boxs = [{
             title: '去食堂吃饭'
@@ -10,6 +16,12 @@ appCtrls.controller('HelloCtrl', ['$scope',
             title: '去吃黄焖鸡'
         }];
 
+        //$http.get('api/books.json').success(function(data){
+        //    $scope.books = data;
+        //}).error(function(){
+        //    alert("an unexpected error ocurred!");
+        //});
+        //
         $scope.pageClass="hello";
 
         $scope.alert = function(){
@@ -22,18 +34,23 @@ appCtrls.controller('HelloCtrl', ['$scope',
 
         $scope.add = function() {
             $scope.boxs.push({"title" : $scope.addtitle});
+            console.log($scope.boxs);
             $scope.showDialog = "translateY(-50%) scale(0)";
         };
 
         $scope.cancel = function(){
             $scope.showDialog = "translateY(-50%) scale(0)";
         };
+
         var randomNumber = Math.floor((Math.random()*$scope.boxs.length));
         $scope.boxTitleRodon = $scope.boxs[randomNumber].title;    //result
+        console.log($scope.boxs);
+
         $scope.refresh = function(){
+            console.log($scope.boxs);
+            alert("0k");
             $scope.boxTitleRodon = $scope.boxs[0].title;    //result
         };
-        setInterval(console.log($scope.boxs.length),100)
 
         //$scope.alert = function () {
         //    $modal.open({

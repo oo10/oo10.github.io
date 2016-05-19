@@ -12,6 +12,9 @@ app.config(function($routeProvider) {
     }).when('/', {
         templateUrl: 'tpls/index.html',
         controller: 'IndexCtrl'
+    }).when('/result', {
+        templateUrl: 'tpls/bookList.html',
+        controller: 'HelloCtrl'
     }).otherwise({
         redirectTo: '/',
     })

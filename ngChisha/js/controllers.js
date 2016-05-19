@@ -1,7 +1,7 @@
 var appCtrls = angular.module('appCtrls', []);
 
 appCtrls.controller('HelloCtrl', ['$scope','$http',
-    function($scope,$http) {
+    function($scope) {
         $scope.boxs = [{
             title: '去食堂吃饭'
         },{
@@ -10,12 +10,19 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
             title: '去吃黄焖鸡'
         }];
 
-        $http.get('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json').success(function(data){
-            $scope.boxs = data.boxs;
-            console.log(data.boxs);
-        }).error(function(){
-            alert("an unexpected error ocurred!");
-        });
+        //$http.get('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json').success(function(data){
+        //    $scope.boxs = data.boxs;
+        //    console.log(data.boxs);
+        //}).error(function(){
+        //    alert("an unexpected error ocurred!");
+        //});
+        localStorage.setItem("test1","去食堂吃饭");
+        localStorage.setItem("test2","吃外卖");
+        localStorage.setItem("test3","去吃黄焖鸡");
+        var test = localStorage.test1;
+        console.log(test);
+
+
 
         $scope.pageClass="hello";
 
@@ -26,19 +33,32 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
         $scope.del = function(idx){
             $scope.boxs.splice(idx,1);
         };
-
-        $scope.add = function() {
-            var boxs = {
-                "title": $scope.addtitle
-            };
-            console.log($scope.addtitle);
-            $http.post('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json', boxs).success(function(){
-                $scope.msg = 'Data saved';
-            }).error(function(data) {
-                alert("failure message:" + JSON.stringify({data:data}));
-            });
+        var i = 3;
+        $scope.add = function(idx) {
+            //var boxs = {
+            //    "title": $scope.addtitle
+            //};
+            //console.log($scope.addtitle);
+            //$http.post('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json', boxs).success(function(){
+            //    $scope.msg = 'Data saved';
+            //}).error(function(data) {
+            //    alert("failure message:" + JSON.stringify({data:data}));
+            //});
+            i++;
+            localStorage.setItem("test"+(i),$scope.addtitle);
             $scope.boxs.push({"title" : $scope.addtitle});
             console.log($scope.boxs);
+            console.log(i+":"+localStorage.getItem("test"+(i)));
+            //localStorage.removeItem(key) 删除
+            for(var a = 0, len = localStorage.length;a<len;a++){
+                var getKey=localStorage.key(i);
+                if(getKey.substring(0,4)=="test"){
+                    //从0开始，长度为4的子字符串是否为test
+                    //然后这里再取出值
+                    console.log($scope.boxs);
+                }
+            }
+
             $scope.showDialog = "translateY(-50%) scale(0)";
         };
 
@@ -55,25 +75,7 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
             alert("0k");
             $scope.boxTitleRodon = $scope.boxs[0].title;    //result
         };
-
-        //$scope.alert = function () {
-        //    $modal.open({
-        //        templateUrl: 'tpls/index.html',
-        //        scope: $scope,
-        //        controller: function ($scope) {
-        //            $scope.ok = function (index) {
-        //                $scope.itemsList.items.splice(index, 1)
-        //                $scope.$dismiss();
-        //            }
-        //            $scope.cancel = function () {
-        //                $scope.$dismiss()
-        //            }
-        //        }
-        //    })
-        //}
-
     }
-
 ]);
 
 

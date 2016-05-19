@@ -1,13 +1,7 @@
 var appCtrls = angular.module('appCtrls', []);
-var boxs = [{
-    title: '去食堂吃饭'
-},{
-    title: '吃外卖'
-},{
-    title: '去吃黄焖鸡'
-}];
+
 appCtrls.controller('HelloCtrl', ['$scope','$http',
-    function($scope) {
+    function($scope,$http) {
         $scope.boxs = [{
             title: '去食堂吃饭'
         },{
@@ -16,12 +10,13 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
             title: '去吃黄焖鸡'
         }];
 
-        //$http.get('api/books.json').success(function(data){
-        //    $scope.books = data;
-        //}).error(function(){
-        //    alert("an unexpected error ocurred!");
-        //});
-        //
+        $http.get('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json').success(function(data){
+            $scope.boxs = data.boxs;
+            console.log(data.boxs);
+        }).error(function(){
+            alert("an unexpected error ocurred!");
+        });
+
         $scope.pageClass="hello";
 
         $scope.alert = function(){
@@ -33,6 +28,15 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
         };
 
         $scope.add = function() {
+            var boxs = {
+                "title": $scope.addtitle
+            };
+            console.log($scope.addtitle);
+            $http.post('http://localhost:63342/nhpop.cn/angular.js/exp/app/boxs.json', boxs).success(function(){
+                $scope.msg = 'Data saved';
+            }).error(function(data) {
+                alert("failure message:" + JSON.stringify({data:data}));
+            });
             $scope.boxs.push({"title" : $scope.addtitle});
             console.log($scope.boxs);
             $scope.showDialog = "translateY(-50%) scale(0)";
@@ -72,21 +76,6 @@ appCtrls.controller('HelloCtrl', ['$scope','$http',
 
 ]);
 
-appCtrls.controller('BookListCtrl', ['$scope',
-    function($scope) {
-        $scope.books = [{
-            title: "《Ext江湖》",
-            author: "大漠穷秋"
-        }, {
-            title: "《ActionScript游戏设计基础（第二版）》",
-            author: "大漠穷秋"
-        }, {
-            title: "《用AngularJS开发下一代WEB应用》",
-            author: "大漠穷秋"
-        }];
-        $scope.pageClass="list";
-    }
-]);
 
 appCtrls.controller('IndexCtrl', ['$scope',
     function($scope) {

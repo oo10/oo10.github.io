@@ -8,18 +8,20 @@ app.config(function($routeProvider) {
         controller: 'HelloCtrl'
     }).when('/list', {
         templateUrl: 'tpls/bookList.html',
-        controller: 'HelloCtrl'
+        controller: 'ListCtrl'
     }).when('/', {
         templateUrl: 'tpls/index.html',
         controller: 'IndexCtrl'
-    }).when('/result', {
-        templateUrl: 'tpls/bookList.html',
-        controller: 'HelloCtrl'
     }).otherwise({
-        redirectTo: '/',
+        redirectTo: '/'
     })
 });
 
+app.filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
 //bookStoreApp.run(['$rootScope', '$location', function($rootScope, $location) {
 //    $rootScope.$on('$routeChangeSuccess', function(newV) {
 //        $rootScope.path = $location.path();

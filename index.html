@@ -1,50 +1,33 @@
-﻿<!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>index</title>
-<link rel="stylesheet" type="text/css" href="path.css">
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script type='text/javascript' src='jquery.min.js'></script>
-<script type='text/javascript' src='jquery.particleground.min.js'></script>
-<script type='text/javascript' src='canvas.js'></script>
+    <meta charset="UTF-8">
+    <title>GitHub导航页</title>
     <style>
-        @media (max-width: 480px) {
-            iframe{width: 100%;}
-        }
-        @media (min-width: 480px) {
-            iframe{opacity: .6; transition: ease all .5s;}
-            iframe:hover{opacity: .8;}
-        }
+        * { padding: 0; margin: 0;}
+        html,body { height: 100%; font-family: "Microsoft JhengHei", "微软正黑", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "黑体", sans-serif}
+        a,a:hover,a:active,a:focus { text-decoration: none; color: #888888;}
+        li { list-style: none; padding: 6px 0;}
+        ul { text-align: center;}
+        h3 { text-align: center; margin: 20px;}
     </style>
 </head>
 <body>
-<div id="particles" class="ani-in-zoom">
-</div>
-    <div class="introbox" style="height: 663px;">
-        <div class="vcenterwrap">
-            <div class="intro">
-                <img src="./img/IMG_1610.JPG" alt="阳琪旺" class="avatar">
-                <h1>阳琪旺</h1>
-                <h3>非二次元  /  技术宅  /  大三狗  /  世界观测中</h3>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        //显示内容
-        $(".mainbox").css("display","block");
-        //自适应页面大小
-        function changeDivHeight(){
-            var clienth = document.documentElement.clientHeight; 
-            $(".introbox").height(clienth+"px");
-            $(".mainbox").css("margin-top",clienth+"px");
-        }
-        //自适应页面大小
-        window.onload=function(){changeDivHeight();}  
-        window.onresize=function(){changeDivHeight();}  
-        </script>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="http://music.163.com/outchain/player?type=2&id=35403523&auto=1&height=32"></iframe>
+    <section>
+        <h3>PC端</h3>
+        <ul>
+            <li><a href="index" target="_blank">博客首页效果</a></li>
+            <li><a href="ngApp" target="_blank">吃啥呢？</a></li>
+            <li><a href="鬼畜" target="_blank">鬼畜</a></li>
+            <li><a href="右键自定义菜单" target="_blank">右键自定义菜单</a></li>
+            <li><a href="console" target="_blank">console效果</a></li>
+        </ul>
+        <h3>手机端</h3>
+        <ul>
+            <li><a href="aiche99" target="_blank">仿手机通讯录</a></li>
+            <li><a href="ngApp" target="_blank">吃啥呢？</a></li>
+            <li><a href="nhpop_new" target="_blank">迎新专题</a></li>
+        </ul>
+    </section>
 </body>
 </html>

@@ -24,13 +24,9 @@ a {  text-decoration: none}
 .color-white { color: #ffffff}
 
 .swap {
-<<<<<<< HEAD
     width: 100%;
-    min-width: 320px;
+    min-width: 640px;
     max-width: 960px;
-=======
-    width: 640px;
->>>>>>> origin/master
     height: 1040px;
     overflow: hidden;
     margin: 0 auto;
@@ -39,29 +35,19 @@ a {  text-decoration: none}
 
 .switch-bar {
     height: 90px;
-<<<<<<< HEAD
     overflow: hidden
 }
 .switch-bar .button-swap {
     width: -webkit-calc(100% - 120px);
     width: -moz-calc(100% - 120px);
     width: calc(100% - 120px);
-=======
-}
-.switch-bar .button-swap {
-    width: 530px;
->>>>>>> origin/master
     float: left;
     margin-left: 20px
 }
 .switch-bar .coupon-button {
-<<<<<<< HEAD
     width: -webkit-calc(50% - 20px);
     width: -moz-calc(50% - 20px);
     width: calc(50% - 20px);
-=======
-    width: 250px;
->>>>>>> origin/master
     height: 60px;
     margin: 16px 0;
     text-align: center;
@@ -117,10 +103,7 @@ a {  text-decoration: none}
     width: 100%;
     position: relative;
     background: #faf1d4;
-<<<<<<< HEAD
     overflow: hidden;
-=======
->>>>>>> origin/master
     z-index: 1
 }
 
@@ -131,10 +114,6 @@ a {  text-decoration: none}
     left: 70px;
     top: 0;
     line-height: 60px;
-<<<<<<< HEAD
-=======
-    z-index: 0
->>>>>>> origin/master
 }
 
 .tip .broadcast-icon {
@@ -215,11 +194,7 @@ a {  text-decoration: none}
 
 .coupon-list .coupon-list-left {
     height: 100%;
-<<<<<<< HEAD
     width: 66.66%;
-=======
-    width: 400px;
->>>>>>> origin/master
     background: #db3652;
     position: absolute;
     left: 0;
@@ -286,11 +261,7 @@ a {  text-decoration: none}
 
 .coupon-list .coupon-list-right {
     height: 100%;
-<<<<<<< HEAD
     width: 33.33%;
-=======
-    width: 200px;
->>>>>>> origin/master
     background: #ffffff;
     position: absolute;
     right: 0;
@@ -349,8 +320,4 @@ a {  text-decoration: none}
     font-size: 28px;
     height: 70px;
     line-height: 70px
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master

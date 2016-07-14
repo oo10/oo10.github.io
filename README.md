@@ -13,7 +13,7 @@
 
 - [仿手机通讯录](https://oo10.github.io/aiche99)
 - [吃啥呢？](https://oo10.github.io/ngApp)
-- [nhpop_new](https://oo10.github.io/迎新专题)
+- [迎新专题](https://oo10.github.io/nhpop_new)
 - [优惠券](https://oo10.github.io/coupon)
 
 ***

@@ -1,6 +1,40 @@
-<canvas id="canvas" width="500" height="500" ></canvas>
+<style>
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  canvas {
+    position: relative;;
+
+  }
+  #canvas {
+    z-index: 1;
+  }
+  #canvas2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: .5
+  }
+  div {
+    position:static;
+  }
+</style>
+<canvas id="canvas" width="500" height="200" ></canvas>
+<canvas id="canvas2" width="500" height="200"></canvas>
 <div id="stop" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">stop</div>
 <div id="run" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">run</div>
+<script>
+const canvas2 = document.getElementById("canvas2");
+const ctx2 = canvas2.getContext('2d');
+ctx2.beginPath();
+ctx2.lineWidth = 10;
+ctx2.strokeStyle = '#cccccc';
+ctx2.arc(80,80,50,0,(Math.PI*2),false);
+ctx2.stroke();
+</script>
 <script>
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
@@ -65,9 +99,9 @@ function draw(a){
 
   // // 第一个圆
   // ctx.beginPath();
-  // ctx.lineWidth = 5;
+  // ctx.lineWidth = 10;
   // ctx.strokeStyle = '#ff9900';
-  // ctx.arc(80,80,40,0,a,false);
+  // ctx.arc(80,80,50,0,a,false);
   // ctx.stroke();
   //
   // // 第一个圆
@@ -101,11 +135,12 @@ window.requestAnimationFrame(draw);
 
 document.getElementById("run").addEventListener("click", function() {
    draw();
-   console.log('1');
+   alert('1');
 }, false);
 
 document.getElementById("stop").addEventListener("click", function() {
   window.cancelAnimationFrame(stop);//可以取消该次动画。
+  alert('1');
   console.log(a);
 },false);
 

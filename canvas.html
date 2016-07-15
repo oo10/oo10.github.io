@@ -1,0 +1,113 @@
+<canvas id="canvas" width="500" height="500" ></canvas>
+<div id="stop" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">stop</div>
+<div id="run" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">run</div>
+<script>
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+// requestAnimationFrame polyfill by Erik M ller. fixes from Paul Irish and Tino Zijdel
+// MIT license
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame;
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext('2d');
+// function draw(x,y,r,a,b,counterclockwise){
+//   ctx.clearRect(0, 0, 500, 500);//清除画布
+//   // 第一个圆
+//   ctx.beginPath();
+//   ctx.lineWidth = 5;
+//
+//   ctx.strokeStyle = '#ff4444';
+//   ctx.arc(x, y, r, a ,b, counterclockwise);
+//   ctx.stroke();
+//
+//   // arc(x, y, radius, startAngle, endAngle, counterclockwise)
+//   //
+//   // x,y: 描述弧的圆形的圆心的坐标。
+//   // radius: 描述弧的圆形的半径。
+//   // startAngle, endAngle: 沿着圆指定弧的开始点和结束点的一个角度。这个角度用弧度来衡量。
+//   // counterclockwise 弧沿着圆周的逆时针方向（TRUE）还是顺时针方向（FALSE）遍历。
+//
+//   // 增加角度
+//   if(a < b){
+//     a = a + 0.05;
+//   }
+//   else {
+//     a = 0;
+//   }
+//   requestAnimationFrame(function(){
+//     draw(x,y,r,a,b,counterclockwise);
+//   });
+// }
+//
+// requestAnimationFrame(function(){
+//   draw(80,80,50,0,6,true);
+// });
+// setInterval(draw,30);
+var stop = null;
+function draw(a){
+  ctx.clearRect(0, 0, 500, 500);//清除画布
+  // 第一个圆
+  ctx.beginPath();
+  ctx.lineWidth = 5;
+
+  var grd=ctx.createLinearGradient(0,0,170,0);
+  grd.addColorStop("0","black");
+  grd.addColorStop("0.3","magenta");
+  grd.addColorStop("0.5","blue");
+  grd.addColorStop("0.6","green");
+  grd.addColorStop("0.8","yellow");
+  grd.addColorStop(1,"red");
+  ctx.strokeStyle = grd;
+  // ctx.strokeStyle = '#99cc33';
+  ctx.arc(80,80,50,0,a,false);
+  ctx.stroke();
+
+  // 第一个圆
+  ctx.beginPath();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#ff9900';
+  ctx.arc(80,80,40,0,a,false);
+  ctx.stroke();
+
+  // 第一个圆
+  ctx.beginPath();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = grd;
+  // ctx.strokeStyle = '#ffcc00';
+  ctx.arc(80,80,30,0,a,false);
+  ctx.stroke();
+
+
+  // arc(x, y, radius, startAngle, endAngle, counterclockwise)
+  //
+  // x,y: 描述弧的圆形的圆心的坐标。
+  // radius: 描述弧的圆形的半径。
+  // startAngle, endAngle: 沿着圆指定弧的开始点和结束点的一个角度。这个角度用弧度来衡量。
+  // counterclockwise 弧沿着圆周的逆时针方向（TRUE）还是顺时针方向（FALSE）遍历。
+
+  // 增加角度
+  if(a < Math.PI*2){
+    a = a + Math.PI/100;
+  }
+  else {
+    a = 0;
+  }
+  stop = window.requestAnimationFrame(function(){
+    draw(a);
+  });
+}
+window.requestAnimationFrame(draw);
+
+document.getElementById("run").addEventListener("click", function() {
+   draw();
+   alert('1');
+}, false);
+
+document.getElementById("stop").addEventListener("click", function() {
+  window.cancelAnimationFrame(stop);//可以取消该次动画。
+  alert('1');
+  console.log(a);
+},false);
+
+</script>

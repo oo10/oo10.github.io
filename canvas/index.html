@@ -1,4 +1,4 @@
-<canvas id="canvas" width="500" height="500" ></canvas>
+﻿<canvas id="canvas" width="500" height="500" ></canvas>
 <div id="stop" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">stop</div>
 <div id="run" style="text-align:center;width:60px;background:rgba(0,0,0,.1);padding:20px;margin:20px">run</div>
 <script>
@@ -49,34 +49,34 @@ function draw(a){
   ctx.clearRect(0, 0, 500, 500);//清除画布
   // 第一个圆
   ctx.beginPath();
-  ctx.lineWidth = 5;
-
+  ctx.lineWidth = 10;
+  ctx.lineCap="round";
   var grd=ctx.createLinearGradient(0,0,170,0);
-  grd.addColorStop("0","black");
-  grd.addColorStop("0.3","magenta");
-  grd.addColorStop("0.5","blue");
-  grd.addColorStop("0.6","green");
-  grd.addColorStop("0.8","yellow");
-  grd.addColorStop(1,"red");
+  grd.addColorStop("0","#00A29A");
+  grd.addColorStop("0.3","#76B874");
+  grd.addColorStop("0.5","#9FC758");
+  grd.addColorStop("0.6","#BBD338");
+  grd.addColorStop("0.8","#D7DE00");
+  grd.addColorStop("1","#F39800");
   ctx.strokeStyle = grd;
   // ctx.strokeStyle = '#99cc33';
   ctx.arc(80,80,50,0,a,false);
   ctx.stroke();
 
-  // 第一个圆
-  ctx.beginPath();
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = '#ff9900';
-  ctx.arc(80,80,40,0,a,false);
-  ctx.stroke();
-
-  // 第一个圆
-  ctx.beginPath();
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = grd;
-  // ctx.strokeStyle = '#ffcc00';
-  ctx.arc(80,80,30,0,a,false);
-  ctx.stroke();
+  // // 第一个圆
+  // ctx.beginPath();
+  // ctx.lineWidth = 5;
+  // ctx.strokeStyle = '#ff9900';
+  // ctx.arc(80,80,40,0,a,false);
+  // ctx.stroke();
+  //
+  // // 第一个圆
+  // ctx.beginPath();
+  // ctx.lineWidth = 5;
+  // ctx.strokeStyle = grd;
+  // // ctx.strokeStyle = '#ffcc00';
+  // ctx.arc(80,80,30,0,a,false);
+  // ctx.stroke();
 
 
   // arc(x, y, radius, startAngle, endAngle, counterclockwise)
@@ -87,7 +87,7 @@ function draw(a){
   // counterclockwise 弧沿着圆周的逆时针方向（TRUE）还是顺时针方向（FALSE）遍历。
 
   // 增加角度
-  if(a < Math.PI*2){
+  if(a < Math.PI*2-0.2){
     a = a + Math.PI/100;
   }
   else {

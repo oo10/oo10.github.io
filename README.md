@@ -15,5 +15,5 @@
 - [吃啥呢？](https://oo10.github.io/ngApp)
 - [迎新专题](https://oo10.github.io/nhpop_new)
 - [优惠券](https://oo10.github.io/coupon)
-
+- [输入框lable动效](https://oo10.github.io/input)
 ***

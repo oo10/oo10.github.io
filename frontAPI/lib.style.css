@@ -4,6 +4,7 @@ html,body,p,a,ul,li,h2,h4 {
     text-decoration: none;
     list-style: none;
     font-family: 'Microsoft JhengHei', Verdana, sans-serif, SimSun;
+    -webkit-tap-highlight-color:transparent;
 }
 html {
     height: 100%;

@@ -154,3 +154,22 @@ footer {
 }
 .li-las {
 }
+
+::-webkit-scrollbar {
+	width:8px;
+	height:8px;
+}
+::-webkit-scrollbar-track:vertical {
+	background:#FF0000;
+}
+::-webkit-scrollbar-track-piece {
+	background:#F5F5F5
+}
+::-webkit-scrollbar-thumb:vertical {
+	background:#CCCCCC;
+	border-radius:10px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+
+	background:#666666;
+}

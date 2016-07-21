@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>一个自己用的前端库</title>
+    <link href="./lib.style.css" type="text/css" rel="stylesheet">
+    <script>
+        window.onload = function(){
+            document.body.addEventListener('touchstart', function () { });
+            bodyFz();
+            getText();
+        }
+        window.onresize = function(){
+            bodyFz();
+        }
+        function bodyFz(){
+            var oHtml=document.getElementsByTagName('html')[0];
+            var cw=document.documentElement.clientWidth;
+            var fz=cw/6.4;
+            if(fz>=100){
+                fz = 100;
+            }
+            oHtml.style.fontSize=fz+'px';
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h2>
+        前端公共库API
+    </h2>
+    <h4>
+        A code warehouse for my own
+    </h4>
+</header>
+<script>
+    function getText() {
+        var el = document.getElementsByClassName('list-href');
+        for(var i=0;i<el.length;i++){
+            //console.log(el[i].innerText);
+            el[i].href = "//lib.yangqiwang.cn/"+el[i].innerText;
+        }
+    }
+</script>
+<section>
+    <div class="box box1">
+        <div><h3>CSS</h3></div>
+        <ul>
+            <li class="li-fir"><span></span><a class="list-href">bootstrap.min.css</a></li>
+            <li class="li-las"><span></span><a class="list-href">animate.min.css</a></li>
+        </ul>
+    </div>
+    <div class="box box2">
+        <div><h3>JavaScript</h3></div>
+        <ul>
+            <li class="li-fir"><span></span><a class="list-href">jquery-2.0.2.js</a></li>
+            <li class=""><span></span><a class="list-href">jquery.min.js</a></li>
+            <li class=""><span></span><a class="list-href">vue.js</a></li>
+            <li class="li-las"><span></span><a class="list-href">angular.js</a></li>
+        </ul>
+    </div>
+    <div class="box box3">
+        <div><h3>DIY</h3></div>
+        <ul>
+            <li class="li-fir"><span></span><a class="list-href">contextMenu.css</a></li>
+            <li class="li-las"><span></span><a class="list-href">contextMenu.js</a></li>
+        </ul>
+    </div>
+</section>
+<footer>
+    Copyright &copy; 2016 阳琪旺
+</footer>
+</body>
+</html>

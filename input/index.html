@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style type="text/css">
+		.container{padding: 1.5em 0;font-family:微软雅黑;}
+		.custom-input {
+		  position: relative;
+		  padding-top: 20px;
+		  margin-bottom: 10px;
+		}
+
+		.custom-input input {
+		  padding-left: 15px;
+		}
+
+		.custom-input label {
+		  cursor: text;
+		  margin: 0;
+		  padding: 0;
+		  left: 15px;
+		  top: 27px;
+		  position: absolute;
+		  font-size: 14px;
+		  color: #ccc;
+		  font-weight: normal;
+		  transition: all .3s ease;
+		}
+
+		.custom-input label.active {
+		  top: 0;
+		  left: 0;
+		  font-size: 12px;
+		}
+
+		.custom-input label.active.focusIn {
+		  color: #66afe9;
+		}
+	</style>
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+		<div class="container">
+			<div class="row">
+				<div class="custom-input">
+				  <label for="firstname">First Name</label>
+				  <input type="text" class="form-control" id="firstname">
+				</div>
+
+				<div class="custom-input">
+				  <label for="test">Test 1</label>
+				  <input type="text" class="form-control" id="test">
+				</div>
+
+				<div class="custom-input">
+				  <label for="test2">Test 2</label>
+				  <input type="text" class="form-control" id="test2" placeholder="test 2">
+				</div>
+
+				<div class="custom-input">
+				  <label>Test 3</label>
+				  <input type="text" class="form-control" placeholder="Placeholder 3">
+				</div>
+
+				<div class="custom-input">
+				  <label>Test 4</label>
+				  <input type="text" class="form-control">
+				</div>
+
+				<div class="custom-input">
+				  <input type="text" class="form-control" placeholder="Test 5">
+				</div>
+			</div>
+		</div>	
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="js/phanimate.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  $('.custom-input input').phAnim();
+		}
+  	</script>
+</body>
+</html>

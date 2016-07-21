@@ -1,4 +1,4 @@
-# oo10.github.io
+﻿# oo10.github.io
 
 ### mobile
 
@@ -7,6 +7,7 @@
 - [鬼畜](https://oo10.github.io/鬼畜)
 - [右键自定义菜单](https://oo10.github.io/右键自定义菜单)
 - [console效果](https://oo10.github.io/console)
+- [前端库](https://oo10.github.io/frontAPI)
 
 ***
 ### pc
@@ -15,5 +16,5 @@
 - [吃啥呢？](https://oo10.github.io/ngApp)
 - [迎新专题](https://oo10.github.io/nhpop_new)
 - [优惠券](https://oo10.github.io/coupon)
-
+- [输入框lable动效](https://oo10.github.io/input)
 ***

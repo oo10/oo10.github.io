@@ -7,7 +7,7 @@
 <!--<p><a href="#/list">下一页</a></p>-->
 
 <p>{{msg}}</p>
-<div style="height:calc(100% - 44px);width: 100%;" ng-click="cancel()"></div>
+<div style="{{showDialogBg}}height:-webkit-calc(100% + 50px);transform:translateY(-50px);width:100%;position:fixed;z-index:9;" ng-click="cancel()"></div>
 <div class="dialog" style="transform:{{showDialog}}">
     <!--<input placeholder="输入选项" ng-model="addtitle" value="{{addtitle}}">-->
     <input placeholder="输入选项" ng-model="addtitle">
@@ -16,4 +16,3 @@
         <a class="cancel-btn" ng-click="cancel()">取消</a>
     </div>
 </div>
-

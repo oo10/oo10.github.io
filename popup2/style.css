@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 24px;
+  font-family: 'Microsoft JhengHei Light','Microsoft JhengHei','Microsoft YaHei Light','Microsoft YaHei',sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+}
+
+.popup {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+
+}
+
+.popup-swap {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  line-height: 100%;
+}
+
+.popup-box {
+  width: 75% ;
+  height: 7.55rem;
+  max-height: 90%;
+  border-radius: 0.1rem;
+  position:relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #151b31;
+}
+
+.popup-box .close-btn {
+  height: 0.6rem;
+  width: 0.6rem;
+  border: 0.02rem solid rgba(0,0,0,.8);
+  border-radius: 0.32rem;    /*** height/2 + border  ***/
+  position: absolute;
+  right: -0.3rem;
+  top: -0.3rem;
+  background: #ed8d91;
+}
+
+.popup-box .close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.1rem;
+  height: 0.02rem;
+  width: 0.4rem;
+  background: #ffffff;
+  transform: rotate(-45deg);
+}
+
+.popup-box .close-btn::after {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.1rem;
+  height: 0.02rem;
+  width: 0.4rem;
+  background: #ffffff;
+  transform: rotate(45deg);
+}
+
+.popup-box .introduction {
+  text-align: center;
+}
+
+.popup-box .introduction > .star-name {
+  font-size: 0.34rem;
+  color: #ed8d91;
+  line-height: 1.1rem;
+  margin: 0 0.24rem;
+  border-bottom: 1px solid #a1a4ad;
+}
+
+.popup-box .introduction .star-intro {
+  height: 5.6rem;  /***  7.55 -1.1 ***/
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-indent: 0.48rem;
+  font-size: 0.24rem;
+  color: #ffffff;
+  line-height: 0.45rem;
+  margin: 0.1rem 0.24rem 0 0.24rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+
+.popup-box .opacity-swap {
+  width: calc(100% - 0.48rem);
+  width: -webkit-calc(100% - 0.48rem);
+  height: 0.01rem;
+  margin-left:0.24rem;
+  background-color: #a1a4ad;
+  position: absolute;
+  bottom: 0.3rem;
+  z-index: 999;
+}
+
+.popup-box::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.4rem;
+  background-image: linear-gradient(to top, rgba(21, 27, 49, 1) 2%, rgba(21, 27, 49, 0.8) 40%, rgba(21, 27, 49, 0.6) 80%, rgba(21, 27, 49, 0) 98%);
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+}

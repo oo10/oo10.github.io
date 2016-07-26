@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>脸探明细介绍</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <script>
+  window.onload = function(){
+    bodyFz();
+  }
+  window.onresize = function(){
+    bodyFz();
+  }
+  function bodyFz(){
+    var oHtml=document.getElementsByTagName('html')[0];
+    var cw=document.documentElement.clientWidth;
+    var fz=cw/6.4;
+    oHtml.style.fontSize=fz+'px';
+  }
+  function closeBtn(){
+    var target=document.getElementById("popup-swap");
+    target.style.display="none";
+ }
+  </script>
+  <body>
+    <section class="banner">
+      <img src="./脸探640X1008-blue.jpg" width="100%" height="auto">
+    </section>
+    <section class="popup">
+      <div class="popup-swap" id="popup-swap">
+        <div class="popup-box">
+          <span class="close-btn" onclick="closeBtn()"></span>
+          <div class="introduction">
+            <h3 class="star-name">周杰伦</h3>
+            <p class="star-intro">
+              周杰伦（Jay Chou），1979年1月18日出生于台湾新北市，华语流行男歌手、词曲创作人、制作人、演员、MV及电影导演、编剧及监制。2000年发行首张专辑《Jay》。2003年成为美国《时代周刊》亚洲版封面人物。凭借专辑《Jay》、《范特西》、《叶惠美》及《跨时代》四次获金曲奖最佳国语专辑奖，并凭借《魔杰座》、《跨时代》两度获金曲奖“最佳国语男歌手”奖。2014年、2015年两度获QQ音乐年度盛典最佳全能艺人奖。2015年获全球华语榜中榜亚洲影响力最受欢迎全能艺人奖。2005年以电影《头文字D》获台湾电影金马奖及香港电影金像奖“最佳新演员”奖。2007年成立杰威尔音乐有限公司，自编自导自演的电影《不能说的秘密》获台湾电影金马奖台湾年度杰出电影奖。2009年入选美国CNN亚洲极具影响力人物，2011年主演好莱坞电影《青蜂侠》进军国际，获美国MTV电影大奖最佳新人奖提名。2012年登福布斯中国名人榜榜首。2014年担任中国禁毒宣传形象大使。2016年7月，周杰伦担任途牛首席产品官。
+            </p>
+          </div>
+          <div class="opacity-swap">
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

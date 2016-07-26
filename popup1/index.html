@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+    <title>dajie</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <script>
+  window.onload = function(){
+    bodyFz();
+  }
+  window.onresize = function(){
+    bodyFz();
+  }
+  function bodyFz(){
+    var oHtml=document.getElementsByTagName('html')[0];
+    var cw=document.documentElement.clientWidth;
+    var fz=cw/6.4;
+    oHtml.style.fontSize=fz+'px';
+  }
+  </script>
+  <body>
+    <section class="banner">
+      <span id="show-btn" class="show-btn">活动规则</span>
+      <img src="./DaJie main shake_start 01.jpg" width="100%" height="auto">
+    </section>
+    <section id="popup" class="popup">
+      <div id="popup-swap" class="popup-swap"></div>
+      <div class="box-swap">
+        <div id="popup-box" class="popup-box">
+          <span id="close-btn" class="close-btn"></span>
+          <span class="warning"></span>
+          <div class="tip">
+            <h3>提示</h3>
+            <p>邀请朋友参与</p>
+            <p>可以获得1次摇一摇的机会</p>
+            <a href="#" class="invite-btn">邀请</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function(){
+        document.body.addEventListener('touchstart', function () { });
+        var elP = document.getElementById("popup");
+        var elS = document.getElementById("popup-swap");
+        var elB = document.getElementById("popup-box");
+        var elClose = document.getElementById("close-btn");
+        var elShow = document.getElementById("show-btn");
+        // 判断是否有这个class
+        function hasClass(obj, cls) {
+          return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+        }
+        // 增加class
+        function addClass(obj, cls) {
+          if (!hasClass(obj, cls)) obj.className += " " + cls;
+        }
+        // 判移除class
+        function removeClass(obj, cls) {
+          if (hasClass(obj, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            obj.className = obj.className.replace(reg, '');
+          }
+        }
+        // 显示popup
+        elShow.addEventListener("click",function(){
+          elP.style.display = 'block';
+          window.setTimeout(function(){
+            removeClass(elB, "popup-scala-out");
+            addClass(elB, "popup-scala-in")
+          },100);
+        })
+        // 监听 点击按钮关闭popup
+        elClose.addEventListener("click",function(){
+          removeClass(elB, "popup-scala-in");
+          addClass(elB, "popup-scala-out")
+          window.setTimeout(function(){
+            elP.style.display = 'none';
+          },300);
+        })
+        // 监听 点击遮罩关闭popup
+        elS.addEventListener("click",function(){
+          removeClass(elB, "popup-scala-in");
+          addClass(elB, "popup-scala-out")
+          window.setTimeout(function(){
+            elP.style.display = 'none';
+          },300);
+        })
+      })();
+    </script>
+  </body>
+</html>

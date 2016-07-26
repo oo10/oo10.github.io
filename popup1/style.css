@@ -11,6 +11,7 @@ body {
   position: relative;
   font-size: 24px;
   font-family: 'Microsoft JhengHei Light','Microsoft JhengHei','Microsoft YaHei Light','Microsoft YaHei',sans-serif;
+  -webkit-tap-highlight-color:transparent;
 }
 
 a {

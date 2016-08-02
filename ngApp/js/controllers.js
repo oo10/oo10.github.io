@@ -52,6 +52,8 @@ appCtrls.controller('ListCtrl', ['$scope',
 
         $scope.alert = function () {
             $scope.showDialog = "translateY(-50%) scale(1)";
+            $scope.showDialogBg = "background:rgba(0,0,0,0.2);";
+
         };
 
         $scope.del = function (idx) {
@@ -68,6 +70,7 @@ appCtrls.controller('ListCtrl', ['$scope',
             $scope.boxs.push({"title": $scope.addtitle||'Empty','bgUrl': bgUrl[o]});
             localStorage['names'] = JSON.stringify($scope.boxs);
             $scope.showDialog = "translateY(-50%) scale(0)";
+            $scope.showDialogBg = "background:rgba(0,0,0,0);";
             //console.log("boxs" + $scope.boxs);
             o++;
             $scope.addtitle=''; //将输入的内容置空
@@ -75,6 +78,7 @@ appCtrls.controller('ListCtrl', ['$scope',
 
         $scope.cancel = function () {
             $scope.showDialog = "translateY(-50%) scale(0)";
+            $scope.showDialogBg = "background:rgba(0,0,0,0);";
         };
     }
 ]);

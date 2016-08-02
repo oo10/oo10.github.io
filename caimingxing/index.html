@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,instial-scale=1.0,maximum-scale =1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>猜明星</title>
+    <script>
+      var a = document.getElementsByTagName('html')[0];
+      var b = document.documentElement.clientWidth;
+      var c = b / 6.4;
+      if (c >= 100) c = 100;
+      a.style.fontSize = c + 'px';
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section id="pagebg">
+        <div class="sunlight">
+          <img src="./img/bg_light.png">
+        </div>
+        <div class="circlelight center">
+        </div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="person center">
+          <img src="./img/persons.png">
+        </div>
+      </section>
+      <section id="wood">
+        <div class="woodFloor center">
+        </div>
+        <div class="woodText center">
+        </div>
+      </section>
+      <section id="letters">
+        <div class="button center"></div>
+        <div class="text center">
+          <hgroup class="hg1 center">
+            <h4>
+              WHO IS HE ？&nbsp
+            </h4>
+            <h2>
+              他是谁？
+            </h2>
+          </hgroup>
+          <hgroup class="hg2 center">
+            <h2>
+              猜猜看　
+            </h2>
+            <h4>
+              GUESS...　　　
+            </h4>
+          </hgroup>
+          <hgroup class="hg3 center">
+            <h2>
+              你懂得...
+            </h2>
+            <h4>
+              YOU KNOW...&nbsp
+            </h4>
+          </hgroup>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>

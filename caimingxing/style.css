@@ -1,0 +1,204 @@
+﻿* { margin: 0; padding: 0 }
+html {
+  height: 100%
+}
+body {
+  height: 100%;
+  font-size: 0.24rem;
+  font-family: 'Microsoft JhengHei Light','Microsoft JhengHei','Microsoft YaHei Light','Microsoft YaHei',sans-serif;
+  font-weight: normal;
+  -webkit-tap-highlight-color: transparent
+}
+.center {
+  left: 0;
+  right: 0;
+  margin: auto
+}
+.wrapper {
+  height: auto;
+  min-height: 100%;
+  background: #59c2bb;
+  position: relative
+}
+
+/*** 素材层 ***/
+
+#wood {
+  height: 3.12rem;
+  /*transform: translateY(-50%);*/
+  /*opacity: 0;*/
+  /*transition: 0.5s ease transiform;*/
+  /*animation: aniZoomIn 1s  cubic-bezier(0.71,1.7,0.77,1.24);
+  animation-delay: 2.5s;*/
+}
+#wood .woodFloor {
+  position: absolute;
+  top: 1rem;
+  height: 2.12rem;
+  width: 5rem;
+  background: url("./img/woodfloor.png") center no-repeat;
+  background-size: cover;
+  z-index: 99;
+  -webkit-animation: aniSwing 5s infinite;
+  animation: aniSwing 5s infinite;
+  transform-origin: top
+}
+#wood .woodText {
+  position: absolute;
+  top: 2rem;
+  height: 0.87rem;
+  width: 3.55rem;
+  background: url("./img/woodtext.png") center no-repeat;
+  background-size: cover;
+  z-index: 99;
+  -webkit-animation: aniSwing 5s infinite;
+  animation: aniSwing 5s infinite;
+  transform-origin: 50% -1rem
+}
+
+/*** 中间文字层 ***/
+
+#letters {
+}
+
+#letters .button {
+  position: absolute;
+  bottom: 0.85rem;
+  height: 0.68rem;
+  width: 3.11rem;
+  background: url("./img/but_star.png") center no-repeat;
+  background-size: cover;
+  z-index: 999;
+  -webkit-animation: shake 3s infinite;
+  animation: shake 3s infinite;
+  animation-delay: 1s
+}
+#letters hgroup {
+  position: absolute;
+  z-index: 999;
+  width: 67%;
+  height: 1rem;
+  text-align: center
+}
+#letters .text {
+  position: absolute;
+  top: calc(50% + 1rem);
+  width: 100%;
+  height: 4.4rem;
+  color: #ffffff;
+  letter-spacing: 0.01rem;
+  transform: translateY(-50%);
+  z-index: 999
+}
+#letters hgroup > h2 {
+  height: 0.56rem;
+  width: 100%;
+  line-height: 0.56rem;
+  font-size: 0.42rem;
+  font-weight: inherit;
+  background: rgba(19,62,74,0.3)
+}
+#letters hgroup > h4 {
+  height: 0.35rem;
+  width: 100%;
+  line-height: 0.35rem;
+  font-size: 0.22rem;
+  font-weight: inherit
+}
+#letters .hg1{
+  top: 0
+}
+#letters .hg2{
+  top: 1.7rem
+}
+#letters .hg3{
+  top: 3.4rem
+}
+
+/*** 背景层 ***/
+
+#pagebg {
+  height: auto;
+  min-height: 100%;
+  width: 100%
+}
+#pagebg .top {
+  position: absolute;
+  top: 0;
+  height: 2.31rem;
+  width: 100%;
+  background: url("./img/bg_top.png") center no-repeat;
+  background-size: cover;
+  z-index: 9
+}
+#pagebg .bottom {
+  position: absolute;
+  bottom: 0;
+  height: 5.3rem;
+  width: 100%;
+  background: url("./img/bg_bottom.png") center no-repeat;
+  background-size: cover;
+  z-index: 9
+}
+#pagebg .sunlight {
+  position: absolute;
+  top: 1rem;
+  height: calc(100% - 1rem);
+  width: 100%;
+  overflow: hidden;
+  z-index: 1
+}
+#pagebg .sunlight > img {
+  width: 200%;
+  object-fit: none;
+  object-position: 50%;
+  transform: translateX(-25%);
+  -webkit-animation: aniRotate 12s infinite;
+  animation: aniRotate 12s infinite;
+  animation-delay: 1.5s
+}
+#pagebg .circlelight {
+  position: absolute;
+  top: 1.82rem;
+  width: 100%;
+  height: 6.01rem;
+  background: url("./img/bg_circleLight.png") center no-repeat;
+  background-size: cover;
+  z-index: 100
+}
+#pagebg .person {
+  position: absolute;
+  bottom: 2rem;
+  height: 4.53rem;
+  width: 100%;
+  z-index: 99;
+  -webkit-animation: aniZoomIn 1s cubic-bezier(0.71,1.7,0.77,1.24);
+  animation: aniZoomIn 1s cubic-bezier(0.71,1.7,0.77,1.24)
+}
+#pagebg .person > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+
+/*** 动画效果 ***/
+
+@keyframes aniRotate {
+  0%{-webkit-transform: translateX(-25%) rotate(0);transform: translateX(-25%) rotate(0)}
+  100%{-webkit-transform: translateX(-25%) rotate(360deg);transform: translateX(-25%) rotate(360deg)}
+}
+@keyframes aniSwing {
+  0%{-webkit-transform: rotate(-10deg);transform: rotate(-10deg)}
+  50%{-webkit-transform: rotate(10deg);transform: rotate(10deg)}
+  100%{-webkit-transform: rotate(-10deg);transform: rotate(-10deg)}
+}
+@keyframes aniZoomIn {
+  0%{-webkit-transform: scale(0);transform: scale(0);}
+  100%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+}
+@keyframes shake{
+  0%,90%{-webkit-transform:translate(0,0);transform:translate(0,0)}
+  10%,30%,50%,70%,90%{-webkit-transform:translate(-0.05rem,0);transform:translate(-0.05rem,0)}
+  20%,40%,60%,80%{-webkit-transform:translate(0.05rem,0);transform:translate(0.05rem,0)}
+}

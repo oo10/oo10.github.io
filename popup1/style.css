@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 24px;
+  font-family: 'Microsoft JhengHei Light','Microsoft JhengHei','Microsoft YaHei Light','Microsoft YaHei',sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+}
+
+.banner .show-btn {
+  width: 1.7rem;
+  height: 0.6rem;
+  display: inline-block;
+  text-indent: -100rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.6rem;
+  font-size: 0.34rem;
+}
+
+/***  遮罩层 & 弹出层 style ***/
+
+.popup {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.popup-swap {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.box-swap {
+  height:  6.26rem;  /***  5.66 + 0.3 *2  close-btn height ***/
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.popup-box {
+  width: 75% ;
+  height: 5.66rem;
+  max-height: 100%;
+  border-radius: 0.1rem;
+  position:relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #151b31;
+  /*transition: transform .5s ease,opacity .3s ease;*/
+  transition: all .5s ease;
+}
+
+.popup-box .close-btn {
+  height: 0.6rem;
+  width: 0.6rem;
+  border: 0.02rem solid rgba(0,0,0,.8);
+  border-radius: 0.32rem;    /*** height/2 + border  ***/
+  position: absolute;
+  right: -0.3rem;
+  top: -0.3rem;
+  background: #ffcd40;
+}
+
+.popup-box .close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.1rem;
+  height: 0.02rem;
+  width: 0.4rem;
+  background: #ffffff;
+  transform: rotate(-45deg);
+}
+
+.popup-box .close-btn::after {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.1rem;
+  height: 0.02rem;
+  width: 0.4rem;
+  background: #ffffff;
+  transform: rotate(45deg);
+}
+
+.popup-box .warning {
+  height: 1.4rem;
+  width: 1.4rem;
+  border: 0.1rem solid #ffcd40;
+  border-radius: 0.9rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.6rem;
+}
+
+.popup-box .warning::before {
+  content: '';
+  display: block;
+  height: 0.55rem;
+  width: 0.1rem;
+  border-radius: 0.04rem;
+  position: absolute;
+  top: 0.25rem;
+  left:0.65rem;
+  background: #ffcd40;
+}
+
+.popup-box .warning::after {
+  content: '';
+  display: block;
+  height: 0.16rem;
+  width: 0.1rem;
+  border-radius: 0.04rem;
+  position: absolute;
+  top: 1rem;
+  left:0.65rem;
+  background: #ffcd40;
+}
+.popup-box .tip {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.popup-box .tip > h3 {
+  font-size: 0.36rem;
+  color: #ffffff;
+  line-height: 0.8rem;
+  padding-top: 0.2rem;
+}
+
+.popup-box .tip p {
+  font-size: 0.3rem;
+  color: #ffffff;
+  line-height: 0.5rem;
+}
+
+.popup-box .invite-btn {
+  display: block;
+  height: 0.6rem;
+  width: 80%;
+  border-radius: 0.3rem;
+  text-align: center;
+  color: #161b2e;
+  background: #ffcd40;
+  position: absolute;
+  bottom: 0.75rem;
+  left:0.5rem;
+  font-size: 0.34rem;
+  line-height: 0.6rem;
+}
+
+/***  弹出层 animate ****/
+
+.popup-scala-out {
+  transform: translate(-50%,-30%) scale(0.8);;
+  opacity: 0;
+  /*transition: transform .5s ease,opacity .3s ease;*/
+}
+
+.popup-scala-in {
+  transform: translate(-50%,-50%) scale(1);;
+  opacity: 1;
+  /*transition: transform .5s ease,opacity .3s ease;*/
+}

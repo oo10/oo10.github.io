@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width,instial-scale=1.0,maximum-scale =1.0,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>猜明星</title>
-    <script>
-      var a = document.getElementsByTagName('html')[0];
-      var b = document.documentElement.clientWidth;
-      var c = b / 6.4;
-      if (c >= 100) c = 100;
-      a.style.fontSize = c + 'px';
-    </script>
+    <script src="common.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -34,7 +28,7 @@
         </div>
       </section>
       <section id="letters">
-        <div class="button center"></div>
+        <div id="buttonStar" class="button center"></div>
         <div class="text center">
           <hgroup class="hg1 center">
             <h4>
@@ -62,7 +56,11 @@
           </hgroup>
         </div>
       </section>
-
     </div>
+    <script>
+        $("buttonStar").addEventListener("click",function(){
+          window.location.href = "action.html";
+        });
+    </script>
   </body>
 </html>

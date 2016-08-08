@@ -1,4 +1,4 @@
-﻿* { margin: 0; padding: 0 }
+* { margin: 0; padding: 0 }
 html {
   height: 100%
 }
@@ -7,6 +7,7 @@ body {
   font-size: 0.24rem;
   font-family: 'Microsoft JhengHei Light','Microsoft JhengHei','Microsoft YaHei Light','Microsoft YaHei',sans-serif;
   font-weight: normal;
+  overflow-x: hidden;
   -webkit-tap-highlight-color: transparent
 }
 .center {
@@ -39,9 +40,10 @@ body {
   background: url("./img/woodfloor.png") center no-repeat;
   background-size: cover;
   z-index: 99;
-  -webkit-animation: aniSwing 5s infinite;
   animation: aniSwing 5s infinite;
-  transform-origin: top
+  -webkit-animation: aniSwing 5s infinite;
+  transform-origin: top;
+  -webkit-transform-origin: top
 }
 #wood .woodText {
   position: absolute;
@@ -53,6 +55,7 @@ body {
   z-index: 99;
   -webkit-animation: aniSwing 5s infinite;
   animation: aniSwing 5s infinite;
+  -webkit-transform-origin: 50% -1rem;
   transform-origin: 50% -1rem
 }
 
@@ -71,6 +74,7 @@ body {
   z-index: 999;
   -webkit-animation: shake 3s infinite;
   animation: shake 3s infinite;
+  -webkit-animation-delay: 1s;
   animation-delay: 1s
 }
 #letters hgroup {
@@ -82,11 +86,13 @@ body {
 }
 #letters .text {
   position: absolute;
+  top: -webkit-calc(50% + 1rem);
   top: calc(50% + 1rem);
   width: 100%;
   height: 4.4rem;
   color: #ffffff;
   letter-spacing: 0.01rem;
+  transform: translateY(-50%);
   transform: translateY(-50%);
   z-index: 999
 }
@@ -143,6 +149,7 @@ body {
 #pagebg .sunlight {
   position: absolute;
   top: 1rem;
+  height: -webkit-calc(100% - 1rem);
   height: calc(100% - 1rem);
   width: 100%;
   overflow: hidden;
@@ -152,9 +159,11 @@ body {
   width: 200%;
   object-fit: none;
   object-position: 50%;
+  -webkit-transform: translateX(-25%);
   transform: translateX(-25%);
   -webkit-animation: aniRotate 12s infinite;
   animation: aniRotate 12s infinite;
+  -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s
 }
 #pagebg .circlelight {
@@ -182,23 +191,241 @@ body {
 }
 
 
+
+
+/*** page result style ***/
+
+.actionBg {
+  background: url("./img/bg_action.png") center no-repeat;
+  background-size : cover;
+}
+
+#letters .button-act-position {
+  background: url("./img/but_next.png") center no-repeat;
+  background-size: cover;
+}
+
+#letters .star-image-bg {
+  position: absolute;
+  top: -webkit-calc(50% - 0.8rem);
+  top: calc(50% - 0.8rem);
+  width: 4rem;
+  height: 4.5rem;
+  background: #fff;
+  z-index: 9;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#letters .star-image-bg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -0.4rem;
+  top: -0.4rem;
+  height: 0.76rem;
+  width: 0.88rem;
+  background: url("./img/clip_paper.png");
+  background-size: cover;
+  z-index: 99
+}
+
+#letters .star-image-bg::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -0.4rem;
+  top: -0.4rem;
+  height: 0.76rem;
+  width: 0.88rem;
+  background: url("./img/clip_paper.png");
+  background-size: cover;
+  z-index: 99;
+  -webkit-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+
+#letters .star-image {
+  margin: 0.25rem 0.25rem 0 0.25rem;
+}
+
+#letters .star-image > img {
+  width: 3.5rem;
+  height: 3.8rem;
+  object-fit: cover;
+}
+
+#letters .star-names form {
+  position: absolute;
+  bottom: 2rem;
+  width: 92%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+#letters .star-names label {
+  display: block;
+  width: 1.4rem;
+  height: 0.58rem;
+  line-height: 0.55rem;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #00747d;
+  background: #fff;
+  box-shadow: 0.01rem 0.01rem 0.01rem rgba(0,0,0,.2);
+}
+
+#letters .star-names input[type="radio"] {
+  display: none;
+}
+
+#letters .star-names input[type="radio"]:checked + label {
+  color:#fff;
+  background: #00747d;
+}
+/*** page result style ***/
+
+
+#pagebg .bottom1 {
+  position: absolute;
+  bottom: 0;
+  height: 9.15rem;
+  width: 100%;
+  background: url("./img/bg_house.png") center no-repeat;
+  background-size: cover;
+  z-index: 9
+}
+
+#pagebg .cloud {
+  position: absolute;
+  top: 0;
+  height: 2.75rem;
+  width: 100%;
+  background: url("./img/cloud.png") center no-repeat;
+  background-size: cover;
+  z-index: 9;
+  -webkit-animation: aniZoomIn 1s cubic-bezier(0.71,1.7,0.77,1.24);
+  animation: aniZoomIn 1s cubic-bezier(0.71,1.7,0.77,1.24)
+}
+
+#pagebg .sun-position {
+  top: -1rem;
+  height: -webkit-calc(100% + 1rem);
+  height: calc(100% + 1rem);
+}
+#wood .resultWood {
+  position: absolute;
+  top: 0;
+  height: 4.1rem;
+  width: 100%;
+  z-index: 999;
+  -webkit-animation: aniRollIn 3s cubic-bezier(0.71,1.7,0.77,1.24);
+  animation: aniRollIn 3s cubic-bezier(0.71,1.7,0.77,1.24);
+}
+#wood .resultWood > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#letters .share-btn-position {
+  bottom: 1.3rem;
+  height: 0.68rem;
+  width: 3.11rem;
+  background: url("./img/but_share.png") center no-repeat;
+  background-size: cover;
+  z-index: 9999
+}
+#letters .result-box {
+  position: absolute;
+  bottom: 0.45rem;
+  height: 4rem;
+  width: 85%;
+  color: #fff;
+  text-align: center;
+  border: 0.1rem solid currentColor;
+  box-shadow: 0.1rem 0.1rem 0.05rem rgba(0,0,0,.1);
+  background: #136369;
+  z-index: 999;
+  overflow: hidden;
+}
+#letters .result-box > p:first-of-type {
+  padding-top: 0.75rem;
+}
+#letters .result-box > p {
+  line-height: 0.5rem;
+  font-size: 0.3rem;
+  color: currentColor
+}
+#letters .result-box .tips > span {
+  display: none;
+}
+
 /*** 动画效果 ***/
 
 @keyframes aniRotate {
-  0%{-webkit-transform: translateX(-25%) rotate(0);transform: translateX(-25%) rotate(0)}
-  100%{-webkit-transform: translateX(-25%) rotate(360deg);transform: translateX(-25%) rotate(360deg)}
+  0%{
+    -webkit-transform: translateX(-25%) rotate(0);
+    transform: translateX(-25%) rotate(0);
+  }
+  100%{
+    -webkit-transform: translateX(-25%) rotate(360deg);
+    transform: translateX(-25%) rotate(360deg);
+  }
 }
 @keyframes aniSwing {
-  0%{-webkit-transform: rotate(-10deg);transform: rotate(-10deg)}
-  50%{-webkit-transform: rotate(10deg);transform: rotate(10deg)}
-  100%{-webkit-transform: rotate(-10deg);transform: rotate(-10deg)}
+  0%{
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg)
+  }
+  50%{
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg)
+  }
+  100%{
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg)
+  }
 }
 @keyframes aniZoomIn {
-  0%{-webkit-transform: scale(0);transform: scale(0);}
-  100%{-webkit-transform: scale(1);transform: scale(1);opacity: 1;}
+  0%{
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100%{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes aniRollIn {
+  0%{
+    -webkit-transform: translateY(-20%);
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100%{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @keyframes shake{
-  0%,90%{-webkit-transform:translate(0,0);transform:translate(0,0)}
-  10%,30%,50%,70%,90%{-webkit-transform:translate(-0.05rem,0);transform:translate(-0.05rem,0)}
-  20%,40%,60%,80%{-webkit-transform:translate(0.05rem,0);transform:translate(0.05rem,0)}
+  0%,90%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0)
+  }
+  10%,30%,50%,70%,90%{
+    -webkit-transform:translate(-0.05rem,0);
+    transform:translate(-0.05rem,0)
+  }
+  20%,40%,60%,80%{
+    -webkit-transform:translate(0.05rem,0);
+    transform:translate(0.05rem,0)
+  }
 }

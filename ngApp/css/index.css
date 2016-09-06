@@ -31,19 +31,19 @@ li{
     color:#000;
     overflow-x: hidden;
 }
-.list::-webkit-scrollbar-track:vertical{
+.page::-webkit-scrollbar-track:vertical{
     background:#FF0000;
 }
 
-.list::-webkit-scrollbar-track-piece{  /* 外 */
+.page::-webkit-scrollbar-track-piece{  /* 外 */
     background:#F5F5F5
 }
 
-.list::-webkit-scrollbar-thumb:vertical{   /* 内 */
+.page::-webkit-scrollbar-thumb:vertical{   /* 内 */
     background:#CCCCCC; border-radius:10px;
 }
 
-.list::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
+.page::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
     background:#666666;
 }
 .result{

@@ -52,7 +52,7 @@ appCtrls.controller('ListCtrl', ['$scope',
         //});
 
         $scope.alert = function () {
-            $scope.showPop = "rgba(0,0,0,.1)";
+            $scope.showPop = "rgba(0,0,0,.8)";
             $scope.showDialog = "translateY(-50%) scale(1)";
             $scope.popZindex = "1";
         };

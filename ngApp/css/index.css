@@ -1,25 +1,4 @@
-﻿
-::-webkit-scrollbar{
-		width:8px; height:8px;
-	}
-
-::-webkit-scrollbar-track:vertical{
-		background:#FF0000;
-	}
-
-::-webkit-scrollbar-track-piece{  /* 外 */
-		background:#F5F5F5
-	}
-
-::-webkit-scrollbar-thumb:vertical{   /* 内 */
-		background:#CCCCCC; border-radius:10px;
-	}
-
-::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
-		background:#666666;
-	}
-
-button,a,li,p,span {
+﻿button,a,li,p,span {
     touch-action: manipulation;
     -webkit-user-select: none;
     -webkit-user-drag: none;
@@ -189,7 +168,6 @@ li{
     height: 140px;
     position: fixed;
     top:50%;
-		z-index: 999;
     transform: translateY(-50%) scale(0);
     left: 0;
     right: 0;
@@ -243,7 +221,6 @@ li{
     position: fixed;
     bottom: 20px;
     right: 20px;
-		z-index: 99;
 }
 .add-btn span{
     font-size: 60px;

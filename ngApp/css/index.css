@@ -16,10 +16,10 @@ li{
     text-align:center;
     top:0;
     width:100%;
-    padding-top: 44px;
+    margin-top: 44px;
 }
 .index {
-	overflow: hidden;
+    overflow: hidden;
 }
 .page-bg{
     height: 100%;
@@ -30,21 +30,6 @@ li{
 .list {
     color:#000;
     overflow-x: hidden;
-}
-.page::-webkit-scrollbar-track:vertical{
-    background:#FF0000;
-}
-
-.page::-webkit-scrollbar-track-piece{  /* 外 */
-    background:#F5F5F5
-}
-
-.page::-webkit-scrollbar-thumb:vertical{   /* 内 */
-    background:#CCCCCC; border-radius:10px;
-}
-
-.page::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
-    background:#666666;
 }
 .result{
     color:#FFFFFF;
@@ -192,6 +177,7 @@ li{
     border-radius: 4px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);
     transition: .5s ease transform;
+    z-index:9999;
 }
 .dialog input{
     height: 40px;
@@ -237,6 +223,7 @@ li{
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index:99999999;
 }
 .add-btn span{
     font-size: 60px;

@@ -1,4 +1,4 @@
-var appCtrls = angular.module('appCtrls', []);
+﻿var appCtrls = angular.module('appCtrls', []);
 
 var bgUrl = [
     './imgs/picture1.jpg',
@@ -51,6 +51,7 @@ appCtrls.controller('ListCtrl', ['$scope',
         //});
 
         $scope.alert = function () {
+            $scope.showPop = "rgba(0,0,0,.1)";
             $scope.showDialog = "translateY(-50%) scale(1)";
         };
 
@@ -75,6 +76,7 @@ appCtrls.controller('ListCtrl', ['$scope',
 
         $scope.cancel = function () {
             $scope.showDialog = "translateY(-50%) scale(0)";
+            $scope.showPop = "rgba(0,0,0,0)";
         };
     }
 ]);

@@ -55,22 +55,7 @@
         .active {
             display: block;
         }
-::-webkit-scrollbar-track:vertical{
-    background:#FF0000;
-}
-
-::-webkit-scrollbar-track-piece{  /* 外 */
-    background:#F5F5F5
-}
-
-::-webkit-scrollbar-thumb:vertical{   /* 内 */
-    background:#CCCCCC; border-radius:10px;
-}
-
-::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
-    background:#666666;
-}
-
+/* == scroll bar == */ .page::-webkit-scrollbar{width: 12px;} /* Track */ .page::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); -webkit-border-radius: 10px;border-radius: 10px;} /* Handle */ .page::-webkit-scrollbar-thumb {-webkit-border-radius: 10px;border-radius: 10px;background: rgba(37,119,227,0.8);-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);} .page::-webkit-scrollbar-thumb:window-inactive{background: rgba(37,119,227,0.4); }
     </style>
 </head>
 

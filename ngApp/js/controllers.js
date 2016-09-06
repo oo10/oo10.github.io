@@ -24,6 +24,7 @@ if(localData != localStorage['names']){
 
 appCtrls.controller('ListCtrl', ['$scope',
     function ($scope) {
+        $scope.popZindex = "-1";
         $scope.pageClass = "list";    //添加page class
         if(localData != localStorage['names']){
             if(localStorage['names']==undefined){
@@ -53,6 +54,7 @@ appCtrls.controller('ListCtrl', ['$scope',
         $scope.alert = function () {
             $scope.showPop = "rgba(0,0,0,.1)";
             $scope.showDialog = "translateY(-50%) scale(1)";
+            $scope.popZindex = "1";
         };
 
         $scope.del = function (idx) {
@@ -72,11 +74,14 @@ appCtrls.controller('ListCtrl', ['$scope',
             //console.log("boxs" + $scope.boxs);
             o++;
             $scope.addtitle=''; //将输入的内容置空
+            $scope.showPop = "rgba(0,0,0,0)";
+            $scope.popZindex = "-1";
         };
 
         $scope.cancel = function () {
             $scope.showDialog = "translateY(-50%) scale(0)";
             $scope.showPop = "rgba(0,0,0,0)";
+            $scope.popZindex = "-1";
         };
     }
 ]);

@@ -16,7 +16,7 @@ li{
     text-align:center;
     top:0;
     width:100%;
-    margin-top: 44px;
+    padding-top: 44px;
 }
 .index {
     overflow: hidden;
@@ -29,7 +29,6 @@ li{
 }
 .list {
     color:#000;
-    overflow-x: hidden;
 }
 .result{
     color:#FFFFFF;

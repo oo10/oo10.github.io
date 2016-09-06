@@ -30,27 +30,27 @@ li{
 .list {
     color:#000;
     overflow-x: hidden;
-::-webkit-scrollbar-track:vertical{
+}
+.list::-webkit-scrollbar-track:vertical{
     background:#FF0000;
 }
 
-::-webkit-scrollbar-track-piece{  /* 外 */
+.list::-webkit-scrollbar-track-piece{  /* 外 */
     background:#F5F5F5
 }
 
-::-webkit-scrollbar-thumb:vertical{   /* 内 */
+.list::-webkit-scrollbar-thumb:vertical{   /* 内 */
     background:#CCCCCC; border-radius:10px;
 }
 
-::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
+.list::-webkit-scrollbar-thumb:vertical:hover{   /*鼠内*/
     background:#666666;
-}
-
 }
 .result{
     color:#FFFFFF;
     overflow: hidden;
 }
+
 .btn-box{
     position: fixed;
     bottom: 0;

@@ -13,3 +13,11 @@
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
 
+//var a = document.getElementsByTagName('html')[0];
+//var b = document.documentElement.clientWidth;
+//var c = b / 6.4;
+//if (c >= 100) c = 100;
+//a.style.fontSize = c + 'px';
+//function $(id){
+//  return document.getElementById(id);
+//}

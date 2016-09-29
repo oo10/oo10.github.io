@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,instial-scale=1.0,maximum-scale =1.0,user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <title>猜明星</title>
     <script src="common.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>猜明星</title>
   </head>
   <body>
     <div class="wrapper">
@@ -58,9 +59,24 @@
       </section>
     </div>
     <script>
-        $("buttonStar").addEventListener("click",function(){
+        $("#buttonStar").on("click",function(){
           window.location.href = "action.html";
         });
+        console.log($('.person').offset().top);
+        console.log($('.person').offset().left);
+
+        $(".text").on("mousemove",function(e){
+          var offsetX = e.clientX / window.innerWidth - 0.5,
+              offsetY = e.clientY / window.innerHeight -0.5;
+          // var offsetX = $('.person').offset().top;
+          var _left = -40 * offsetX,//如果想动的幅度更大，可以调整 -40 的值
+              _top = -40 * offsetY;//如果想动的幅度更大，可以调整 -40 的值
+          //应用公式
+          //将您的left值和top值先+此数值，*的小数越大，动的越大，否则越小
+          $(".person").css('left',_left*0.6);
+          // $(".person").css('left',_left*0.6).css('bottom',_top*0.2);
+        })
+
     </script>
   </body>
 </html>

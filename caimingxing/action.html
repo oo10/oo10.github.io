@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,instial-scale=1.0,maximum-scale =1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>答题中...</title>
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <div class="wrapper actionBg">
+      <section id="pagebg">
+      </section>
+      <section id="letters">
+        <div id="buttonNext" class="button center button-act-position"></div>
+        <div class="star-image-bg center">
+          <div class="star-image">
+            <img src="./img/star.jpg" alt="star">
+          </div>
+        </div>
+        <div class="star-names">
+          <form class="center">
+            <input type="radio" id="name1" name="radio" checked="checked"/>
+            <label for="name1">霍建华</label>
+
+            <input type="radio" id="name2" name="radio" />
+            <label for="name2">胡歌</label>
+
+            <input type="radio" id="name3" name="radio" />
+            <label for="name3">李易峰</label>
+
+            <input type="radio" id="name4" name="radio" />
+            <label for="name4">成毅</label>
+          </form>
+        </div>
+      </section>
+      <script>
+         // $("buttonNext").addEventListener("click",function(){
+          //  window.location.href = "result.html";
+         // });
+          $("#buttonNext").on("click",function(){
+            window.location.href = "result.html";
+          })
+      </script>
+    </div>
+  </body>
+</html>

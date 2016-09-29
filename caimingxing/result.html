@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,instial-scale=1.0,maximum-scale =1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>恭喜你！</title>
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section id="pagebg">
+        <div class="sunlight sun-position">
+          <img src="./img/bg_light.png">
+        </div>
+        <div class="bottom1"></div>
+        <div class="cloud"></div>
+      </section>
+      <section id="wood">
+        <div class="resultWood">
+          <img src="./img/honours1.png" id="honour">
+        </div>
+      </section>
+      <section id="letters">
+        <div id="buttonShare" class="button center share-btn-position"></div>
+        <div class="result-box center">
+          <p>
+            您回答正确了<span id="q-number">10</span>道题
+          </p>
+          <p class="tips">
+            <span id="tip1">革命尚未成功，还得继续努力！</span>
+            <span id="tip2">不是一般的狗仔哦！</span>
+            <span id="tip3">厉害！下个版面头条就是你发布的！</span>
+            <span id="tip4">哎呦喂！你是侦探吗！</span>
+          </p>
+        </div>
+      </section>
+    </div>
+    <script>
+      var flag = null;
+      var qNo = $("#q-number").innerText;
+      if(qNo <= 15) flag = 1;
+      else if(qNo <= 22) flag = 2;
+      else if(qNo <= 45) flag = 3;
+      else flag = 4;
+      $("#tip" + flag).style.display = "block";
+      $("#honour").src = "./img/honours" + flag + ".png";
+      
+      $("#buttonShare").on("click",function(){
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>

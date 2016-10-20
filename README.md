@@ -10,6 +10,8 @@
 - [前端库](https://oo10.github.io/frontAPI)
 - - [弹出层1](https://oo10.github.io/popup1)
 - - [弹出层2](https://oo10.github.io/popup2)
+- - [答题1：老口子测试](https://oo10.github.io/老口子)
+- - [答题2：性格测试](https://oo10.github.io/性格测试)
 
 
 ***

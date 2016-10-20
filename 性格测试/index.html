@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>抑郁等级测试</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.preload.js" type="text/javascript"></script>
+</head>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        // 如果不支持addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<body>
+<main>
+    <section class="page1 ">
+        <div class="index-btn center"></div>
+    </section>
+    <section class="page2 hide">
+        <div class="action-main">
+            <img src="images/action_main.png">
+            <!-- panel-body -->
+            <div id="panels"></div>
+        </div>
+    </section>
+    <section class="page3 hide">
+        <div class="result-box center">
+            <div class="result"></div>
+            <div class="btn center">
+                <div class="btn-item tryAgain">再测一次</div>
+                <div class="btn-item share" onclick="sharePic('啊啊啊啊啊啊啊啊啊啊哈哈哈')">分享</div>
+            </div>
+        </div>
+        <div class="popShare">
+            <div class="result-share"></div>
+        </div>
+    </section>
+</main>
+<script type="text/html" id="content">
+    <div id="panel" data-id="1" class="panel-body center mn076 color-g" style="display: block;">
+        <h3 class="list-title center">1. 感到情绪沮丧<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="2" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">2. 早晨心情最好<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="3" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">3. 要哭或者想哭<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="4" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">4. 夜间睡眠不好 <h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <!--<div id="panel" data-id="5" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">5. 吃饭像平时一样多<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="6" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">6. 性功能正常<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="7" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">7. 感觉体重减轻<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="8" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">8. 有便秘的痛苦<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="9" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">9. 心跳比平时快<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="10" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">10. 无故感到疲劳<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="11" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">11.头脑像往常一样清楚<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="12" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">12.做事情像平时一样不觉得困难<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="13" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">13.坐卧不安，难以保持平静<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="14" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">14.对未来满怀希望<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="15" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">15.比平时更容易激怒<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="16" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">16.觉得决定什么事很容易<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="17" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">17.感到自己有用和不可缺少<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="18" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">18.生活很有意义<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="19" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">19.假如我死了别人会过得更好<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    持续 </li>
+            </ul>
+    </div>
+    <div id="panel" data-id="20" class="panel-body center mn076 color-g" style="display: none;">
+        <h3 class="list-title center">20.仍旧喜爱自己平时喜爱的东西<h3>
+            <ul class="list-group center">
+                <li class="list-group-item" data-vaule="1" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="4" />
+                    偶尔 </li>
+                <li class="list-group-item" data-vaule="2" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="3" />
+                    少有 </li>
+                <li class="list-group-item" data-vaule="3" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="2" />
+                    常有 </li>
+                <li class="list-group-item" data-vaule="4" onclick="return toggle(this);">
+                    <input name="g" type="radio" class="" value="1" />
+                    持续 </li>
+            </ul>
+    </div>-->
+    <div class="last-panel" style="display: none;">
+    </div>
+
+</script>
+<script type="text/javascript">
+    var page1 = $('.page1'), page2 = $('.page2'), page3 = $('.page3');
+    var tScore = 0;
+    var resultBox = $('.result');
+
+    //显示不同题目
+    function toggle(t){
+        $(t).children("input").attr("checked","checked");
+        var parent = $(t).parent().parent().parent();
+        var score = $(t).children("input:checked").val();
+        tScore  = parseInt(tScore) + parseInt(score);
+        var rScore  = tScore/80;
+        localStorage["index_xinggeceshi_score"] = tScore;
+        //console.log('本次得分' + score + '+' + '总分' + tScore);
+        $(t).addClass('active');
+        parent.fadeOut();
+        $(t).parent().parent().parent().next().slideDown();
+        //console.log($('.last-panel').is(':visible'));
+        if($('.last-panel').is(':visible')){
+            console.log(tScore +'+'+ rScore);
+            localStorage.setItem("index_xinggeceshi_number",20);
+            if((rScore)<0.5){
+                resultBox.addClass('result1');
+            }
+            else if(rScore<0.59){
+                resultBox.addClass('result2');
+            }
+            else if(rScore<0.69){
+                resultBox.addClass('result3');
+            }
+            else {
+                resultBox.addClass('result4');
+            }
+            page2.fadeOut(); page3.show();
+        }
+    }
+</script>
+<script type="text/javascript">
+    (function () {
+        var rScore2 = localStorage.getItem("index_xinggeceshi_score")/80;
+        var a = Boolean(rScore2);
+        var b = localStorage.getItem("index_xinggeceshi_number");
+        //console.log(a);
+        //console.log(b);
+        if(a&&b==20){
+            if((rScore2)<0.5){
+                resultBox.addClass('result1');
+            }
+            else if(rScore2<0.59){
+                resultBox.addClass('result2');
+            }
+            else if(rScore2<0.69){
+                resultBox.addClass('result3');
+            }
+            else {
+                resultBox.addClass('result4');
+            }
+            page1.fadeOut(); page3.show();
+        }
+        var content = $('#content').html();
+        $('#panels').html(content);
+        // 读取localStorage判断是否玩过 && 绑定事件
+        $('.index-btn').bind("click", function () {
+
+//            else {
+                page1.fadeOut(); page2.show();
+//            }
+        });
+        //按钮绑定事件
+        $('.tryAgain').bind("click", function () {
+            localStorage.removeItem('index_xinggeceshi_score');
+            localStorage.removeItem('index_xinggeceshi_number');
+            window.location.reload();
+        });
+        // $('.share').bind("click", function(){
+        //     sharePic('啊啊啊啊');
+        // });
+            // $('.popShare').fadeIn().bind('touchmove', function (event) {
+            //     event.preventDefault();   //禁止默认事件
+            // })
+            // var srcData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAMAAACb8fvMAAAArlBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+/v5CVJ/KAAAAOHRSTlMA+wX3Dwvf6hI69OPNnS1mf2BMCO7bl2uF03lTMyWQch8Ct6NZ8dcbF8S7i6yoRkE+KQPnN8jAsM0EitUAAAj7SURBVHja7N3ZTiJhGIThakAEWQQEZFNkU5FBBEHevv8bGxvoSSTjIcF0+dyAqVRs/uWjUeI9y9BHTnaWtGSnRT0jN1moyEwe/Kpugl3VqTp+VdfY6cjJHMIQLi/kI5OOQptVXQVCt6pfosxmVT+FUWizqvsQ7gB9mShCuAfvN7KwBEK3qltRZreqs19CcysDeQ6hg33qgkPVTYgTBy5Vpy5hHzgIbaquAeEhcODyXz2HQ+AgTl1IKdkuriD8ArhWslWBOCtx6mzCq443WDGHqp+DKCdfJb3qPgeNa7i6nXJQVYIV2XkcrwRID502kUaCq14SaY8HkiaQ0afyrJDsqltAuztQpABP2hksSvUEV92g2NVBFh4Uu+neKaHym5r+aUNZBnKSX2gdhV7LzRTycvMb2kXRMbTr0/s3tIUsLOVmt/Z2cwlPcjMBr5GqCJDcPfQ3biCQmxxM5OYBCnKzhEe5ycNGbl7hRW66MJebayjJTQdmcjNzmoaNlZJ+K/0/W+jKzQYWctNwPDipg90Xay13lg/wLjc9KMpNDYZyY7n0rmD4VfmSw8TzsSHU5KYNPbmZgN07PzKQlpuy4wFwzfEs1HJt0rJ74cenUaInvL8xhTe5cZy9sPyY7kFbbsawlRvLi6yR452O49jz4MpwcM5ysshyj9WBe7mZO243Hg1PBS9CArsB4LXj5d2t41nRyPFKx/E5lglJ2z3HXmEqNxXH9diL4axg6spwgqzneHfXh6bcDGEsM6mJ4eVG3vGc3/JTemo4S5ULCGxeZB4bOw7COu6lV5eQ2NetfWfhuAa9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";
+            // var str = "分享到朋友圈";
+            // $("body").append("<div class='pop-share' style='position: fixed;top: 0;height: 100vh;width: 100vw;text-align:center;background: rgba(0,0,0,0.85);z-index: 99999;display: none;'><div class='pop-img' style='width: 100px;height: 100px;padding-top:10px;position: fixed;right: 10px;top: 0;'><img src='"+ srcData +"' style='width:100%;height:100%;object-fit:contain'></div><div class='pop-text' style='position:fixed;top:120px;width:100%'>"+ str +"</div></div>");
+            // $('.pop-share').fadeIn().bind("click",function(){
+            //     $(this).remove();
+            // }).css({'color':'#fff','fontSize':'26px'});
+
+
+
+    
+        //弹出层
+        $('.popShare').bind("click", function () {
+            $('.popShare').fadeOut();
+        });
+
+        $.preload( 'http://cdn.haixianshangcheng.com/static/youyu/images/result_1.png',
+                'http://cdn.haixianshangcheng.com/static/youyu/images/result_2.png',
+                'http://cdn.haixianshangcheng.com/static/youyu/images/result_3.png',
+                'http://cdn.haixianshangcheng.com/static/youyu/images/result_4.png',
+                'http://cdn.haixianshangcheng.com/static/youyu/images/shareWX.png'
+        );
+
+    })();
+      function sharePic(str){
+      var srcData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAMAAACb8fvMAAAArlBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+/v5CVJ/KAAAAOHRSTlMA+wX3Dwvf6hI69OPNnS1mf2BMCO7bl2uF03lTMyWQch8Ct6NZ8dcbF8S7i6yoRkE+KQPnN8jAsM0EitUAAAj7SURBVHja7N3ZTiJhGIThakAEWQQEZFNkU5FBBEHevv8bGxvoSSTjIcF0+dyAqVRs/uWjUeI9y9BHTnaWtGSnRT0jN1moyEwe/Kpugl3VqTp+VdfY6cjJHMIQLi/kI5OOQptVXQVCt6pfosxmVT+FUWizqvsQ7gB9mShCuAfvN7KwBEK3qltRZreqs19CcysDeQ6hg33qgkPVTYgTBy5Vpy5hHzgIbaquAeEhcODyXz2HQ+AgTl1IKdkuriD8ArhWslWBOCtx6mzCq443WDGHqp+DKCdfJb3qPgeNa7i6nXJQVYIV2XkcrwRID502kUaCq14SaY8HkiaQ0afyrJDsqltAuztQpABP2hksSvUEV92g2NVBFh4Uu+neKaHym5r+aUNZBnKSX2gdhV7LzRTycvMb2kXRMbTr0/s3tIUsLOVmt/Z2cwlPcjMBr5GqCJDcPfQ3biCQmxxM5OYBCnKzhEe5ycNGbl7hRW66MJebayjJTQdmcjNzmoaNlZJ+K/0/W+jKzQYWctNwPDipg90Xay13lg/wLjc9KMpNDYZyY7n0rmD4VfmSw8TzsSHU5KYNPbmZgN07PzKQlpuy4wFwzfEs1HJt0rJ74cenUaInvL8xhTe5cZy9sPyY7kFbbsawlRvLi6yR452O49jz4MpwcM5ysshyj9WBe7mZO243Hg1PBS9CArsB4LXj5d2t41nRyPFKx/E5lglJ2z3HXmEqNxXH9diL4axg6spwgqzneHfXh6bcDGEsM6mJ4eVG3vGc3/JTemo4S5ULCGxeZB4bOw7COu6lV5eQ2NetfWfhuAa9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";
+      // var str = "分享到朋友圈";
+      $("body").append("<div class='pop-share' style='position: fixed;top: 0;height: 100vh;width: 100vw;text-align:center;background: rgba(0,0,0,0.85);z-index: 99999;display: none;'><div class='pop-img' style='width: 100px;height: 100px;padding-top:10px;position: fixed;right: 10px;top: 0;'><img src='"+ srcData +"' style='width:100%;height:100%;object-fit:contain'></div><div class='pop-text' style='position:fixed;top:110px;width:90%;padding-left:5%'>"+ str +"</div></div>");
+      $('.pop-share').fadeIn().bind("click",function(){
+        $(this).remove();
+      }).css({'color':'#fff','fontSize':'24px'});
+  }
+</script>
+</body>
+</html>

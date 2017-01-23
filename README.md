@@ -24,5 +24,6 @@
 - [输入框lable动效](https://oo10.github.io/input)
 - [Fullscreen](https://oo10.github.io/Fullscreen/Fullscreen/)
 - [前端库](https://oo10.github.io/frontAPI)
+- [Svg动画](https://oo10.github.io/Title.html>
 
 ***
